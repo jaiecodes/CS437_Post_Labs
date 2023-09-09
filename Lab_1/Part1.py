@@ -23,4 +23,3 @@ while True:
         if event.action == 'pressed' and event.direction == 'middle':
             sense.clear()
             break
-    break
