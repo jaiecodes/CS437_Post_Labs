@@ -70,7 +70,7 @@ while True:
             key=cv2.waitKey(1) & 0xFF
             print(len(faces))
             
-            sleep(10)
+            time.sleep(10)
             exit()
 
         #tend= time.time()
