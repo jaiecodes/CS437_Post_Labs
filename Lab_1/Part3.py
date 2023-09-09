@@ -14,7 +14,7 @@ import cv2
 picam2=Picamera2()  ## Create a camera object
 
 
-
+sense = SenseHat()
 dispW=1280
 dispH=720
 ## Next, we configure the preview window size that determines how big should the image be from the camera, the bigger the image the more the details you capture but the slower it runs
