@@ -31,7 +31,7 @@ picam2.configure("preview")
 ## 3 types of configurations are possible: preview is for grabbing frames from picamera and showing them, video is for grabbing frames and recording and images for capturing still images.
 
 
-picam2.start()
+
 
 faceCascade=cv2.CascadeClassifier("/home/pi/Desktop/Code/Lab1/Lab1_Part2/haarcascade_frontalface_default.xml")
 startemp = sense.get_temperature()
@@ -39,7 +39,7 @@ startemp = sense.get_temperature()
 
 while True:
     #tstart=time.time()
-    frame=picam2.capture_array() ## frame is a large 2D array of rows and cols and at intersection of each point there is an array of three numbers for RGB i.e. [R,G,B] where RGB value ranges from 0 to 255
+  
 
   
     pressure=sense.get_pressure()
@@ -50,27 +50,30 @@ while True:
 
     ## the above command will only grab the frame
 
-    cv2.imshow("piCamera2", frame) ## show the frame
-    key=cv2.waitKey(1) & 0xFF
-    frameGray=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
-    faces=faceCascade.detectMultiScale(frameGray,1.3,5)
-
-    if key ==ord(" "):
-        cv2.imwrite("frame-" + str(time.strftime("%H:%M:%S", time.localtime())) + ".jpg", frame)
-
-        print(faces)
-        for face in faces:
-            x,y,w,h=face
-            cv2.rectangle(frame, (x,y), (x+w, y+h), (255,0,0),3)
-        cv2.imshow("Camera Frame", frame)
-        time.sleep(0.5)
+    
+    if(temperature >= startemp+.3 or temperature<= startemp-.3):
+        picam2.start()
+        frame=picam2.capture_array() ## frame is a large 2D array of rows and cols and at intersection of each point there is an array of three numbers for RGB i.e. [R,G,B] where RGB value ranges from 0 to 255
+        cv2.imshow("piCamera2", frame) ## show the frame
         key=cv2.waitKey(1) & 0xFF
-        print(len(faces))
-    if key == ord("q"): ## stops for 1 ms to check if key Q is pressed
-        break
-    #tend= time.time()
-    #looptime=tend-tstart
-    #fps= 1/looptime ## this is the actual frames per second
-    #print("frames per second are",int(fps)) ## if you increase the resolution of the image the fps will go down
+        frameGray=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
+        faces=faceCascade.detectMultiScale(frameGray,1.3,5)
+
+        if len(faces) > 0:
+            cv2.imwrite("frame-" + str(time.strftime("%H:%M:%S", time.localtime())) + ".jpg", frame)
+
+            print(faces)
+            for face in faces:
+                x,y,w,h=face
+                cv2.rectangle(frame, (x,y), (x+w, y+h), (255,0,0),3)
+            cv2.imshow("Camera Frame", frame)
+            time.sleep(0.5)
+            key=cv2.waitKey(1) & 0xFF
+            print(len(faces))
+
+        #tend= time.time()
+        #looptime=tend-tstart
+        #fps= 1/looptime ## this is the actual frames per second
+        #print("frames per second are",int(fps)) ## if you increase the resolution of the image the fps will go down
 
 cv2.destroyAllWindows()
