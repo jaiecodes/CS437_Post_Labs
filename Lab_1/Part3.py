@@ -50,7 +50,7 @@ while True:
     ## the above command will only grab the frame
 
     
-    if(temperature >= startemp+1 or temperature<= startemp-1 or humidity >= starthumid+1 or humidity <= starthumid-1):
+    if(temperature >= startemp+2 or temperature<= startemp-2 or humidity >= starthumid+2 or humidity <= starthumid-2):
         picam2.start()
         frame=picam2.capture_array() ## frame is a large 2D array of rows and cols and at intersection of each point there is an array of three numbers for RGB i.e. [R,G,B] where RGB value ranges from 0 to 255
         cv2.imshow("piCamera2", frame) ## show the frame
