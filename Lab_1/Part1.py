@@ -1,6 +1,6 @@
 from sense_hat import SenseHat
 sense = SenseHat()
-
+sense.clear()
 x, y = 3, 5
 colours = [[255,0,0], [0,255,0], [0,0,255], [255,255,0], [255,0,255], [0,255,255]]
 colour = 0
