@@ -69,10 +69,10 @@ while True:
             time.sleep(0.5)
             key=cv2.waitKey(1) & 0xFF
             print(len(faces))
+            cv2.destroyAllWindows()
 
         #tend= time.time()
         #looptime=tend-tstart
         #fps= 1/looptime ## this is the actual frames per second
         #print("frames per second are",int(fps)) ## if you increase the resolution of the image the fps will go down
 
-cv2.destroyAllWindows()
