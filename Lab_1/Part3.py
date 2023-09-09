@@ -69,7 +69,9 @@ while True:
             time.sleep(0.5)
             key=cv2.waitKey(1) & 0xFF
             print(len(faces))
-            cv2.destroyAllWindows()
+            
+            sleep(10)
+            exit()
 
         #tend= time.time()
         #looptime=tend-tstart
