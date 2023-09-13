@@ -27,7 +27,7 @@ def get_data():
   temp_array = temps.copy()
   temp_array = temp_array.append(temp)
   
-  avg_temp = np.mean(temp_array)
+  avg_temp = np.mean(np.array(temp_array))
   avg_temps.append(avg_temp)
   data.append(avg_temp)
 
