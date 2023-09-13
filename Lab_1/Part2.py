@@ -38,7 +38,7 @@ def get_data():
   data.append(curr_time)
   return data
 
-def animate(i)
+def animate(i):
   data = get_temps()
   ax1.clear()
   ax1.plot(time, temps)
