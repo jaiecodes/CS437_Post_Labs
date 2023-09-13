@@ -38,7 +38,7 @@ def get_data():
   return data
 
 def animate(i):
-  data = get_temps()
+  data = get_data()
   ax1.clear()
   ax1.plot(time, temps)
   ax1.plot(time, avg_temps)
