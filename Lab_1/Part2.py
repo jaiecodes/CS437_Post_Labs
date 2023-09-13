@@ -17,7 +17,7 @@ fig = plt.figure(num= "Temperature", figsize=[13,3])
 ax1 = fig.add_subplot(1,1,1)
 
 def get_data():
-  data = np.array([])
+  data = []
   temperature = sense.get_temperature()
   temperature = round(temperature,1)
   temps.append(temperature)
