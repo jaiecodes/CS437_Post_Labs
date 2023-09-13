@@ -24,10 +24,9 @@ def get_data():
   data.append(temperature)
 
   temp = sense.get_temperature()
-  temp_array = temps.copy()
-  temp_array = temp_array.append(temp)
+  temps.append(temp)
   
-  avg_temp = np.mean(np.array(temp_array))
+  avg_temp = np.mean(temps)
   avg_temps.append(avg_temp)
   data.append(avg_temp)
 
