@@ -22,9 +22,6 @@ def get_data():
   #temperature = round(temperature,1)
   temps.append(temperature)
   data.append(temperature)
-
-  temp = sense.get_temperature()
-  temps.append(temp)
   
   avg_temp = np.mean(temps)
   avg_temps.append(avg_temp)
