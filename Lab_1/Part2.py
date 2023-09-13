@@ -45,6 +45,7 @@ def animate(i):
   ax1.legend(["Temp", "Avg Temp"])
   print(data)
 
-  ani = animation.FuncAnimation(fig, animate, interval=1000)
-  plt.show()
+
+animation = animation.FuncAnimation(fig, animate, interval=1000)
+plt.show()
 
