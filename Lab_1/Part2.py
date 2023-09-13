@@ -19,7 +19,7 @@ ax1 = fig.add_subplot(1,1,1)
 def get_data():
   data = []
   temperature = sense.get_temperature()
-  temperature = round(temperature,1)
+  #temperature = round(temperature,1)
   temps.append(temperature)
   data.append(temperature)
 
