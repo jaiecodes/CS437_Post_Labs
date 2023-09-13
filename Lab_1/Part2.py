@@ -20,21 +20,21 @@ def get_data():
   data = np.array([])
   temperature = sense.get_temperature()
   temperature = round(temperature,1)
-  data.append(temperature)
-  temps.append(temperature)
+  np.append(temps,temperature)
+  np.append(data, temperature)
 
-  temp_array = np.array([])
+  temp_array = np.arrange(4)
   for i in range(4):
-    temp=sense.get_temperature()
-    temp_array.append(temp)
+    temp = sense.get_temperature()
+    temp_array[i] = temp
 
   avg_temp = np.mean(temp_array)
-  data.append(avg_temp)
-  avg_temps.append(avg_temp)
+  np.append(avg_temps, avg_temp)
+  np.append(data, avg_temp)
 
   curr_time = datetime.now()
-  time.append(curr_time)
-  data.append(curr_time)
+  np.append(time, curr_time)
+  np.append(data, curr_time)
   return data
 
 def animate(i):
