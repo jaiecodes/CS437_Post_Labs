@@ -23,8 +23,7 @@ def get_data():
   temps.append(temperature)
   data.append(temperature)
 
-  temp_array = np.arange(4)
-  temp_array[3] = temperature
+  temp_array = np.arange(3)
   for i in range(3):
     temp = sense.get_temperature()
     temp_array[i] = temp
