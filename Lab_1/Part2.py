@@ -3,7 +3,6 @@ import matplotlib.animation as animation
 from matplotlib import style
 from sense_hat import SenseHat
 from datetime import datetime
-from cvs import writer
 import numpy as np
 import time
 
