@@ -12,8 +12,8 @@ avg_temps = np.array([])
 time = np.array([])
 
 
-style.use('seaborn-v0_8')
-fig - plt.figure(num= 'Temperature', figsize=[13,3])
+style.use("fivethirtyeight")
+fig - plt.figure(num= "Temperature", figsize=[13,3])
 ax1 = fig.add_subplore(1,1,1)
 
 def get_data():
