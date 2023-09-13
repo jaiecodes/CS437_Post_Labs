@@ -23,7 +23,12 @@ def get_data():
   temps.append(temperature)
   data.append(temperature)
 
-  avg_temp = np.mean(temps)
+  temp_array = np.arange(5)
+  for i in range(5):
+    temp = sense.get_temperature()
+    temp_array[i] = temp
+  
+  avg_temp = np.mean(temp_array)
   avg_temps.append(avg_temp)
   data.append(avg_temp)
 
