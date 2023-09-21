@@ -38,7 +38,7 @@ picam2.configure("preview")
 
 picam2.start()
 
-faceCascade=cv2.CascadeClassifier("/home/pi/Desktop/Code/Lab1/Lab1_Part2/haarcascade_frontalface_default.xml")
+faceCascade=cv2.CascadeClassifier("/home/pi/Desktop/Code/PostLabs/CS437_Post_Labs/Lab_2/haarcascade_frontalface_default.xml")
 
 def send_message():
     sock.sendto(bytes(message, "utf-8"), (ip_addr, port_num))
