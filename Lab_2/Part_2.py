@@ -62,7 +62,7 @@ while True:
     key=cv2.waitKey(1) & 0xFF
     frameGray=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
     faces=faceCascade.detectMultiScale(frameGray,1.3,5)
-    if len(faces) > 0 :
+    while len(faces) > 0 :
         sock.sendto(bytes(message, "utf-8"), (ip_addr, port_num))
         
     
