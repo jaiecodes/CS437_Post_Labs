@@ -45,7 +45,7 @@ def send_message():
 
 
 message = "MOTION DETECTED"
-ip_addr = "10.192.102.127"
+ip_addr = "10.194.31.38"
 port_num = 5000
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
 while True:
