@@ -44,7 +44,7 @@ def send_message():
     sock.sendto(bytes(message, "utf-8"), (ip_addr, port_num))
 
 
-message = "MOTION DETECTED"
+message = "FACE DETECTED"
 ip_addr = "10.194.31.38"
 port_num = 5000
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
