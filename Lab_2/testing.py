@@ -34,6 +34,6 @@ def plot_timeline(timestamps, motion_events):
     plt.show()
 
 if __name__ == '__main__':
-    pcap_file = 'your_input.pcap'  # Replace with your pcap file path
+    pcap_file = '/home/pi/Desktop/Code/PostLabs/CS437_Post_Labs/Lab_2/packet_capture.pcap'  # Replace with your pcap file path
     timestamps, motion_events = analyze_pcap(pcap_file)
     plot_timeline(timestamps, motion_events)
