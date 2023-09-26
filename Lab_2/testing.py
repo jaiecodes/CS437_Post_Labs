@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scapy.all import *
 
+
+
 def analyze_pcap(pcap_file):
     # Initialize variables to store motion event data
     timestamps = []
