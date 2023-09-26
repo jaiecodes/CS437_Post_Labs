@@ -2,7 +2,7 @@ Videos for all Parts of Lab:https://drive.google.com/file/d/1cXAfA_Pai_kFctJrTuI
 
 ## Lab 2 Post Lab 1 Image of Motion Detection Chart
  ![image](https://github.com/jaiecodes/CS437_Post_Labs/assets/72780632/a507c707-9642-4521-a6f4-174646e4e178)
-
+We run the sniff into a pcap file and then search UPD packets on port 5000 in the pcap file to identify which packets were sent to our server by the camera.
 
 ## Lab 2 Post Lab 2 Facial Detection charting
 ![image](https://github.com/jaiecodes/CS437_Post_Labs/assets/72780632/39db0ed9-ebf2-4c8e-9c78-540aada2a368)
