@@ -15,8 +15,6 @@ How do you expect the face-only detection vs. motion-detection camera to perform
 * The ratio of false negatives for face-only detection would be higher because of the increased complexity of the model used for face recognition. However, there would be fewer false positives than motion detection because it does additional processing. 
 
 Which one do you expect to consume lower power? why?
-* The motion detection would consume lower power when
-
-
+* The motion detection would consume lower power because sending UDP packets is comparatively lower power than the complex processing needed for the Pi to apply a facial recognition model AND send UDP packets. However, if there is more frequent communication, then the motion detector will consume more power since it will be constantly sending packets.
 
 
