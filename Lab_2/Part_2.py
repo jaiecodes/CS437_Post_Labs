@@ -65,7 +65,7 @@ while True:
    
     if len(faces) > 0 :
         sock.sendto(bytes(message, "utf-8"), (ip_addr, port_num))
-        time.sleep(1)
+        #time.sleep(1)
         
     
     if key ==ord(" "):
