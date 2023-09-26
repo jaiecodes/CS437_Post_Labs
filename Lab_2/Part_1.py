@@ -9,10 +9,10 @@ def read_pcap(file):
     packets = rdpcap(file)
     for packet in packets:
         if packet.haslayer(UDP) and packet[UDP].dport == 5000:
-            time.append(packet.time/100)
+            time.append(packet.time)
             motion.append(1)
         else:
-            time.append(packet.time/100)
+            time.append(packet.time)
             motion.append(0)
 
     time = [t - time[0] for t in time]
