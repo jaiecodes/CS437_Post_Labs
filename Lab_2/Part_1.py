@@ -20,10 +20,11 @@ def read_pcap(file):
 def plot(time, motion):
     plt.figure(figsize=(12, 6))
     plt.plot(time, motion, 'r-', linewidth=1)
-    plt.xlabel('Time')
+    plt.xlabel('Time(seconds)')
+    plt.xlim([0,20])
     plt.ylabel('Is Motion Dectected?')
     plt.title('Motion Detection Timeline')
-    plt.ylim([-0.1, 1.1])
+    plt.ylim([0, 1.0])
     plt.grid(True)
     plt.show()
 
