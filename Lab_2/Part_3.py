@@ -34,7 +34,7 @@ def plot_traffic_pattern(timestamps, traffic_pattern):
     plt.show()
 
 if __name__ == '__main__':
-    file = '/home/pi/Desktop/Code/PostLabs/CS437_Post_Labs/Lab_2/packet_capture.pcap'
+    file = '/home/pi/Desktop/Code/PostLabs/CS437_Post_Labs/Lab_2/packet_capture2.pcap'
     timestamps = read_pcap(file)
     traffic_pattern = detect_traffic(timestamps, threshold=0.1)  # Adjust the threshold as needed
     plot_traffic_pattern(timestamps, traffic_pattern)
