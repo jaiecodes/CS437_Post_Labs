@@ -1,3 +1,5 @@
+Videos for all Parts of Lab:https://drive.google.com/file/d/1cXAfA_Pai_kFctJrTuISZ1dk3yk_M78Q/view?usp=sharing
+
 ## Lab 2 Post Lab 1 Image of Motion Detection Chart
  ![image](https://github.com/jaiecodes/CS437_Post_Labs/assets/72780632/a507c707-9642-4521-a6f4-174646e4e178)
 
@@ -13,6 +15,8 @@ How do you expect the face-only detection vs. motion-detection camera to perform
 * The ratio of false negatives for face-only detection would be higher because of the increased complexity of the model used for face recognition. However, there would be fewer false positives than motion detection because it does additional processing. 
 
 Which one do you expect to consume lower power? why?
-* The motion detection would consume lower power when 
+* The motion detection would consume lower power when
+
+
 
 
