@@ -21,7 +21,6 @@ def plot(time, motion):
     plt.figure(figsize=(12, 6))
     plt.plot(time, motion, 'r-', linewidth=1)
     plt.xlabel('Time(seconds)')
-    plt.xlim([0,20])
     plt.ylabel('Is Motion Dectected?')
     plt.title('Motion Detection Timeline')
     plt.ylim([0, 1.0])
