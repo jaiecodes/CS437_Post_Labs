@@ -15,6 +15,7 @@ def read_pcap(file):
             time.append(packet.time/100)
             motion.append(0)
 
+    time = [t - time[0] for t in time]
     return time, motion
 
 def plot(time, motion):
