@@ -1,22 +1,33 @@
 import matplotlib.pyplot as plt
-import matplotlib.animation as animation
 import numpy as np
-import scapy
+from scapy.all import *
 
-capture = sniff()
-wrpcap("Part1.pcap", capture)
+def read_pcap(file):
+    time = []
+    motion = []
 
-f = open("Part1.pcap",'r')
-for row in f:
-    row = row.split(' ')
-    names.append(row[0])
-    marks.append(int(row[1]))
-  
-plt.bar(names, marks, color = 'g', label = 'File Data')
-  
-plt.xlabel('Student Names', fontsize = 12)
-plt.ylabel('Marks', fontsize = 12)
-  
-plt.title('Students Marks', fontsize = 20)
-plt.legend()
-plt.show()
+    packets = rdpcap(file)
+    for packet in packets:
+        if packet.haslayer(UDP) and packet[UDP].dport == 5000:
+            time.append(packet.time)
+            motion.append(1)
+        else:
+            time.append(packet.time)
+            motion.append(0)
+
+    return time, motion
+
+def plot(time, motion):
+    plt.figure(figsize=(12, 6))
+    plt.plot(time, motion, 'r-', linewidth=1)
+    plt.xlabel('Time')
+    plt.ylabel('Is Motion Dectected?')
+    plt.title('Motion Detection Timeline')
+    plt.ylim([-0.1, 1.1])
+    plt.grid(True)
+    plt.show()
+
+if __name__ == '__main__':
+    file = '/home/pi/Desktop/Code/PostLabs/CS437_Post_Labs/Lab_2/packet_capture.pcap'
+    time, motion = read_pcap(file)
+    plot(time, motion)
