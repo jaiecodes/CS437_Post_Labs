@@ -1,4 +1,4 @@
-Videos for all Parts of Lab:https://drive.google.com/file/d/1cXAfA_Pai_kFctJrTuISZ1dk3yk_M78Q/view?usp=sharing
+Videos for all Parts of Lab:https://drive.google.com/drive/folders/1SRbiQu7iFq82x4Q6hidmPT8RSzsXt-e5?usp=sharing
 
 ## Lab 2 Post Lab 1 Image of Motion Detection Chart
  ![image](https://github.com/jaiecodes/CS437_Post_Labs/assets/72780632/a507c707-9642-4521-a6f4-174646e4e178)
