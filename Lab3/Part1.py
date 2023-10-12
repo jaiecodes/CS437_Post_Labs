@@ -63,7 +63,7 @@ def captured_y_packet_callback(pkt): #x-axis
 
 if __name__ == "__main__":
     sense=SenseHat()
-    bool y_start = false
+    y_start = false
     sense.set_imu_config(True,True,True) ## Config the Gyroscope, Accelerometer, Magnetometer
     x = AsyncSniffer(iface=iface_n, prn=captured_x_packet_callback, store=0)
     y = AsyncSniffer(iface=iface_n, prn=captured_y_packet_callback, store=0)
