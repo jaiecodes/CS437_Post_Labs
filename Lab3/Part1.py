@@ -70,7 +70,7 @@ if __name__ == "__main__":
     for event in sense.stick.get_events():
         if event.action == 'pressed' and event.direction == 'right':
             x.start()
-            if y_start is true
+            if y_start is true:
                 y.stop()
         if event.action == 'pressed' and event.direction == 'down':
             y_start = true
