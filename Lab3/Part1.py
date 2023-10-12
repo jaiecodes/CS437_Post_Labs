@@ -65,16 +65,16 @@ if __name__ == "__main__":
     
     x = AsyncSniffer(iface=iface_n, prn=captured_x_packet_callback, store=0)
     y = AsyncSniffer(iface=iface_n, prn=captured_y_packet_callback, store=0)
-    x.daemon = True
-    y.daemon = True
     while True:
         for event in sense.stick.get_events():
             if event.action == 'pressed' and event.direction == 'right':
+                x.daemon = True
                 x.start()
                 if y_start is True:
                     y.stop()
             if event.action == 'pressed' and event.direction == 'down':
                 y_start = True
+                y.daemon = True
                 y.start()
                 if x_start is True:
                     x.stop()
