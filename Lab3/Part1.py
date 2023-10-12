@@ -9,7 +9,7 @@ import scipy
 from scapy.all import *
 
 import scipy.integrate as integrate
-path="/home/pi/Desktop/Code/Lab3/Part2/IMUDataRSSI"
+path="/home/pi/Desktop/CS437_Post_Labs/Lab3/IMUData"
 
 
 
