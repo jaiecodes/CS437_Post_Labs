@@ -4,7 +4,8 @@ import time
 from datetime import datetime,date
 from scapy.all import *
 
-path="/home/pi/Desktop/CS437_Post_Labs/Lab3/IMUData"
+
+path="/home/pi/Desktop/IMUData"
 
 
 
@@ -43,6 +44,7 @@ def captured_x_packet_callback(pkt, x_axis): #x-axis
 
 if __name__ == "__main__":
     sense=SenseHat()
+    y_start = False
     sense.set_imu_config(True,True,True) ## Config the Gyroscope, Accelerometer, Magnetometer
     x_enabled = True
     sniff(iface=iface_n, prn=lambda packet: captured_packet_callback(packet, x_enabled), store=0)
@@ -51,4 +53,7 @@ if __name__ == "__main__":
             if event.action == 'pressed' and event.direction == 'right':
                 x_enabled = True
             if event.action == 'pressed' and event.direction == 'down':
-                x_enabled = False
+                y_start = True
+                y.daemon = True
+                y.start()
+                x.stop()
