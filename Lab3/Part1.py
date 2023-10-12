@@ -30,7 +30,7 @@ def captured_packet_callback(pkt): #x-axis
             if event.action == 'held' and event.direction == 'down':
                 x_axis = False
                 break
-            if event.action == "pressed" and event.direction == 'left':
+            if event.action == "held" and event.direction == 'left':
                 disabled = True
 
         
