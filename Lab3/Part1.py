@@ -54,7 +54,7 @@ if __name__ == "__main__":
                 print("entered the if 1")
                 x_enabled = True
             if event.action == 'pressed' and event.direction == 'down':
-                print("entered the if 1")
+                print("entered the if 2")
                 x_enabled = False
 
 
