@@ -20,6 +20,15 @@ def captured_packet_callback(pkt, x_axis): #x-axis
         accel = sense.get_accelerometer_raw()
         gyro = sense.get_gyroscope_raw()
         mag = sense.get_compass_raw()
+        
+    for event in sense.stick.get_events():
+        if event.action == 'pressed' and event.direction == 'right':
+            print("entered the if 1")
+            x_axis = True
+        if event.action == 'pressed' and event.direction == 'down':
+            print("entered the if 2")
+            x_axis = False
+    
 
         if x_axis is True:
             x = accel['x']
@@ -39,9 +48,6 @@ def captured_packet_callback(pkt, x_axis): #x-axis
         
         time.sleep(1)
 
-
-
-
 if __name__ == "__main__":
     sense=SenseHat()
     sense.set_imu_config(True,True,True) ## Config the Gyroscope, Accelerometer, Magnetometer
@@ -50,16 +56,7 @@ if __name__ == "__main__":
     #sniff(iface=iface_n, prn=captured_packet_callback, packet=captured_packet_callback(packet, x_enabled), store=0)
     t = AsyncSniffer(iface=iface_n, prn=lambda packet: captured_packet_callback(packet, x_enabled), store=0)
     t.start()
-    while True:
-        for event in sense.stick.get_events():
-            if event.action == 'pressed' and event.direction == 'right':
-                print("entered the if 1")
-                x_enabled = True
-            if event.action == 'pressed' and event.direction == 'down':
-                print("entered the if 2")
-                x_enabled = False
-            if event.action == 'pressed' and event.direction == 'up':
-                t.stop()
-                exit(0)
+
+       
 
 
