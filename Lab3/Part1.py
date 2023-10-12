@@ -51,8 +51,10 @@ if __name__ == "__main__":
     while True:
         for event in sense.stick.get_events():
             if event.action == 'pressed' and event.direction == 'right':
+                print("entered the if 1")
                 x_enabled = True
             if event.action == 'pressed' and event.direction == 'down':
+                print("entered the if 1")
                 x_enabled = False
 
 
