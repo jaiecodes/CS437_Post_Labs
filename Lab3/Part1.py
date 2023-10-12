@@ -48,7 +48,7 @@ def captured_packet_callback(pkt): #x-axis
         with open(filename, "a") as f:
             f.write(entry)
         
-        time.sleep(1)
+        #time.sleep(1)
 
 if __name__ == "__main__":
     sense=SenseHat()
