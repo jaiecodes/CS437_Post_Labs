@@ -15,7 +15,7 @@ iface_n = "wlan1"  # Interface for network adapter
 timestamp_fname=datetime.now().strftime("%H:%M:%S")
 filename=path+timestamp_fname+".csv"
 
-def captured_x_packet_callback(pkt, x_axis): #x-axis
+def captured_packet_callback(pkt, x_axis): #x-axis
     if pkt.haslayer(Dot11) and pkt.addr2 == dev_mac:
         accel = sense.get_accelerometer_raw()
         gyro = sense.get_gyroscope_raw()
