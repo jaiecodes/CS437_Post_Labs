@@ -1,14 +1,9 @@
 from sense_hat import SenseHat
 import numpy as np
 import time
-import scipy.signal as signal
 from datetime import datetime,date
-import matplotlib.pyplot as plt
-import pandas as pd
-import scipy
 from scapy.all import *
 
-import scipy.integrate as integrate
 path="/home/pi/Desktop/CS437_Post_Labs/Lab3/IMUData"
 
 
