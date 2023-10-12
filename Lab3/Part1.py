@@ -21,7 +21,7 @@ def captured_packet_callback(pkt): #x-axis
         gyro = sense.get_gyroscope_raw()
         mag = sense.get_compass_raw()
     
-    x_axis = True:
+    x_axis is True:
     for event in sense.stick.get_events():
         if event.action == 'pressed' and event.direction == 'right':
             x_axis = True:
