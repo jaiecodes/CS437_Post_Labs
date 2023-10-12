@@ -31,7 +31,7 @@ def captured_packet_callback(pkt, x_axis): #x-axis
             z = 0.0  
 
         timestamp = datetime.now().strftime("%H:%M:%S")
-
+        print("Value of x:" + x + " Value of Y:" + y)
         entry = str(time.time())+","+timestamp+","+str(x)+","+str(y)+","+str(z)+","+str(pkt.dBm_AntSignal)+"\n"
 
         with open(filename, "a") as f:
