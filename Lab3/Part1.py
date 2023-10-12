@@ -46,7 +46,8 @@ if __name__ == "__main__":
     sense=SenseHat()
     sense.set_imu_config(True,True,True) ## Config the Gyroscope, Accelerometer, Magnetometer
     x_enabled = True
-    sniff(iface=iface_n, prn=lambda packet: captured_packet_callback(packet, x_enabled), store=0)
+    #sniff(iface=iface_n, prn=lambda packet: captured_packet_callback(packet, x_enabled), store=0)
+    sniff(iface=iface_n, prn=captured_packet_callback(packet, x_enabled))
     while True:
         for event in sense.stick.get_events():
             if event.action == 'pressed' and event.direction == 'right':
