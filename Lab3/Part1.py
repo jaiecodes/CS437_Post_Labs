@@ -60,14 +60,17 @@ if __name__ == "__main__":
     sense=SenseHat()
     y_start = False
     sense.set_imu_config(True,True,True) ## Config the Gyroscope, Accelerometer, Magnetometer
+    
     x = AsyncSniffer(iface=iface_n, prn=captured_x_packet_callback, store=0)
     y = AsyncSniffer(iface=iface_n, prn=captured_y_packet_callback, store=0)
-    for event in sense.stick.get_events():
-        if event.action == 'pressed' and event.direction == 'right':
-            x.start()
-            if y_start is True:
-                y.stop()
-        if event.action == 'pressed' and event.direction == 'down':
-            y_start = True
-            y.start()
-            x.stop()
+    
+    while True:
+        for event in sense.stick.get_events():
+            if event.action == 'pressed' and event.direction == 'right':
+                x.start()
+                if y_start is True:
+                    y.stop()
+            if event.action == 'pressed' and event.direction == 'down':
+                y_start = True
+                y.start()
+                x.stop()
