@@ -28,12 +28,7 @@ x_axis=df[2]
 y_axis=df[3]
 z_axis=df[4]
 rssi=df[5]
-plt.plot(x_axis,  label="X-axis Raw Acceleration")
-plt.plot(y_axis,  label="Y-axis Raw Acceleration")
-plt.plot(z_axis,  label="Z-axis Raw Acceleration")
-plt.legend(loc="upper left")
-plt.ylabel("Raw Acceleration in m/s^2")
-plt.xlabel("Number of Data Points")
+
 
 plt.show()
 ### CALIBERATION
@@ -55,14 +50,6 @@ z_calib = z_axis - z_calib_mean
 z_calib = z_calib[:]
 timestamp = timestamp[:]
 
-plt.plot(x_calib, label="X-axis Caliberated Acceleration")
-plt.plot(y_calib, label="Y-axis Caliberated Acceleration")
-plt.plot(z_axis, label="Z-axis Caliberated Acceleration")
-plt.legend(loc="upper left")
-plt.ylabel("Caliberated Acceleration in m/s^2")
-plt.xlabel("Number of Data Points")
-plt.ylim(-5, 5)  # Set the y-axis limits
-plt.show()
 
 
 #print("Check if lengths of each vector are same for tracking time", len(timestamp), len(x_calib), len(y_calib), len(z_calib))
@@ -83,14 +70,6 @@ for i in range(len(y_vel)-1):
 x_vel = [0]
 for i in range(len(x_calib)-1):
     x_vel.append(x_vel[-1] + dt * x_calib[i])
-
-plt.plot(x_vel, label="X-axis velocity")
-plt.plot(y_vel, label="Y-axis velocity")
-plt.legend(loc="upper left")
-plt.ylabel("Velocity in m/s")
-plt.xlabel("# of Samples")
-plt.ylim(-5, 5)  # Set the y-axis limits
-plt.show()
 
 x = [0]
 
