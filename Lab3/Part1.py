@@ -5,7 +5,7 @@ from datetime import datetime,date
 from scapy.all import *
 
 
-path="/home/pi/Desktop/IMUData"
+path="/home/pi/Desktop/CS437_Post_Labs/Lab3"
 
 
 
