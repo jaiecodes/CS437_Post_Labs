@@ -21,6 +21,7 @@ init = False
 def captured_packet_callback(pkt): #x-axis  
     global xpos
     global ypos
+    global init
     if pkt.haslayer(Dot11) and pkt.addr2 == dev_mac:
         
         
