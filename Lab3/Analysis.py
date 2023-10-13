@@ -30,7 +30,6 @@ z_axis=df[4]
 rssi=df[5]
 
 
-plt.show()
 ### CALIBERATION
 x_calib_mean = np.mean(x_axis[10:5000])
 ## caliberate x,y,z to reduce the bias in accelerometer readings. Subtracting it from the mean means that in the absence of motion, the accelerometer reading is centered around zero to reduce the effect of integrigation drift or error.
@@ -96,7 +95,7 @@ plt.plot(timestamp.to_numpy(),y, label="Y positions", c="green")
 plt.legend(loc="upper left")
 plt.xlabel("Timestamp (seconds)")
 plt.ylabel("Positions (m)")
-plt.ylim(-5, 5)  # Set the y-axis limits
+#plt.ylim(-5, 5)  # Set the y-axis limits
 plt.show()
 
 
@@ -109,6 +108,6 @@ plt.xlabel('X position')
 plt.ylabel('Y position')
 cbar = plt.colorbar(scatter, label='RSSI')
 cbar.set_label('RSSI')
-plt.ylim(-5, 5) # Set the y-axis limits
+#plt.ylim(-5, 5) # Set the y-axis limits
 plt.show()
 ##
