@@ -43,7 +43,7 @@ plt.show()
 
 ## Visualizing scatter plot in 2D
 plt.figure(figsize=(10, 6))  # Adjust the figure size as needed
-scatter = plt.scatter(x, y, c=rssi, cmap='viridis', marker='o')
+scatter = plt.scatter(x_axis.to_numpy(), y_axis.to_numpy(), c=rssi, cmap='viridis', marker='o')
 
 # Add labels and a colorbar
 plt.xlabel('X position')
