@@ -15,8 +15,8 @@ timestamp_fname=datetime.now().strftime("%H:%M:%S")
 filename=path+timestamp_fname+".csv"
 height=1.95 # in meters
 step_length= 0.415 * height # in meters
-xpos = [0.0]
-ypos = [0.0]  
+xpos = 0.0
+ypos = 0.0
 def captured_packet_callback(pkt): #x-axis  
    
     if pkt.haslayer(Dot11) and pkt.addr2 == dev_mac:
@@ -28,18 +28,18 @@ def captured_packet_callback(pkt): #x-axis
       
     for event in sense.stick.get_events():  
         if event.action == 'pressed' and event.direction == 'right': # x axis movement
-            xpos.append(xpos[-1] + step_length)
-        if event.action == 'pressed' and event.direction == 'right': # x axis movement
-            xpos.append(xpos[-1] - step_length)
-        if event.action == 'pressed' and event.direction == 'right': # x axis movement
-            ypos.append(ypos[-1] + step_length)
-        if event.action == 'pressed' and event.direction == 'right': # x axis movement
-            ypos.append(ypos[-1] - step_length)
+            xpos = xpos + step_length
+        if event.action == 'pressed' and event.direction == 'left': # x axis movement
+            xpos = xpos - step_length
+        if event.action == 'pressed' and event.direction == 'down': # x axis movement
+            ypos = ypos + step_length
+        if event.action == 'pressed' and event.direction == 'up': # x axis movement
+            ypos = ypos - step_length
             
             
         timestamp = datetime.now().strftime("%H:%M:%S")
         #print("Value of x:" + x + " Value of Y:" + y)
-        entry = str(time.time())+","+timestamp+","+str(xpos[-1])+","+str(ypos[-1])+","+str(0.0)+","+str(pkt.dBm_AntSignal)+"\n"
+        entry = str(time.time())+","+timestamp+","+str(xpos)+","+str(ypos)+","+str(0.0)+","+str(pkt.dBm_AntSignal)+"\n"
 
         with open(filename, "a") as f:
             f.write(entry)
