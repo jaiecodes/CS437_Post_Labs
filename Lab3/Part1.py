@@ -36,10 +36,10 @@ def captured_packet_callback(pkt): #x-axis
                 x_axis = False
                 disabled = False
                 break
-             if event.action == 'pressed' and event.direction == 'left':
+            if event.action == 'pressed' and event.direction == 'left':
                 x_pos = 0.0
                 y_pos = 0.0
-                initialized = True;
+                initialized = True
             if event.action == 'release' and event.direction == 'down':
                 x_pos =  accel['x']
                 break
