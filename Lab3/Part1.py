@@ -15,7 +15,7 @@ iface_n = "wlan1"  # Interface for network adapter
 timestamp_fname=datetime.now().strftime("%H:%M:%S")
 filename=path+timestamp_fname+".csv"
 
-global initialized = False
+global initialized
 def captured_packet_callback(pkt): #x-axis
     global x_pos 
     global y_pos
@@ -73,6 +73,7 @@ def captured_packet_callback(pkt): #x-axis
             #time.sleep(1)
 
 if __name__ == "__main__":
+    initialized = False
     sense=SenseHat()
     sense.set_imu_config(True,True,True) ## Config the Gyroscope, Accelerometer, Magnetometer
     sniff(iface=iface_n, prn=captured_packet_callback)
