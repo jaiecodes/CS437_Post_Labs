@@ -22,30 +22,31 @@ def captured_packet_callback(pkt): #x-axis
         mag = sense.get_compass_raw()
     
         x_axis = True
-        disabled = False;
+        disabled = True;
         for event in sense.stick.get_events():
             if event.action == 'held' and event.direction == 'right':
                 x_axis = True
+                disabled = False
                 break 
             if event.action == 'held' and event.direction == 'down':
                 x_axis = False
+                disabled = False
                 break
-            if event.action == "held" and event.direction == 'left':
-                disabled = True
 
         
         if disabled is True:
             x = 0.0
             y = 0.0 # consider making this an array so that if we want to run the analysis it can access the 0
             z = 0.0  
-        elif x_axis is True:
-            x = accel['x']
-            y = 0.0 # consider making this an array so that if we want to run the analysis it can access the 0
-            z = 0.0  
         else:
-            x = 0.0 
-            y = accel['y'] # consider making this an array so that if we want to run the analysis it can access the 0
-            z = 0.0  
+            if x_axis is True:
+                x = accel['x']
+                y = 0.0 # consider making this an array so that if we want to run the analysis it can access the 0
+                z = 0.0  
+            else:
+                x = 0.0 
+                y = accel['y'] # consider making this an array so that if we want to run the analysis it can access the 0
+                z = 0.0  
 
         timestamp = datetime.now().strftime("%H:%M:%S")
         #print("Value of x:" + x + " Value of Y:" + y)
