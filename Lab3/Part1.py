@@ -26,7 +26,7 @@ def captured_packet_callback(pkt): #x-axis
     
         x_axis = True
         disabled = True
-       initialized = False
+        initialized = False
         for event in sense.stick.get_events():
             if event.action == 'held' and event.direction == 'right':
                 initialized = True
