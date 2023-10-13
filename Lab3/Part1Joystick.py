@@ -27,31 +27,42 @@ def captured_packet_callback(pkt): #x-axis
     
     
       
-    for event in sense.stick.get_events():  
-        if event.action == 'pressed' and event.direction == 'right': # x axis movement
-            xpos = xpos + step_length
-        if event.action == 'pressed' and event.direction == 'left': # x axis movement
-            xpos = xpos - step_length
-        if event.action == 'pressed' and event.direction == 'down': # x axis movement
-            ypos = ypos + step_length
-        if event.action == 'pressed' and event.direction == 'up': # x axis movement
-            ypos = ypos - step_length
-            
-            
-        timestamp = datetime.now().strftime("%H:%M:%S")
-        #print("Value of x:" + x + " Value of Y:" + y)
-        entry = str(time.time())+","+timestamp+","+str(xpos)+","+str(ypos)+","+str(0.0)+","+str(pkt.dBm_AntSignal)+"\n"
+        for event in sense.stick.get_events():  
+            if event.action == 'pressed' and event.direction == 'right': # x axis movement
+                xpos = xpos + step_length
+            if event.action == 'pressed' and event.direction == 'left': # x axis movement
+                xpos = xpos - step_length
+            if event.action == 'pressed' and event.direction == 'down': # x axis movement
+                ypos = ypos + step_length
+            if event.action == 'pressed' and event.direction == 'up': # x axis movement
+                ypos = ypos - step_length
+                
+                
+            timestamp = datetime.now().strftime("%H:%M:%S")
+            #print("Value of x:" + x + " Value of Y:" + y)
+            entry = str(time.time())+","+timestamp+","+str(xpos)+","+str(ypos)+","+str(0.0)+","+str(pkt.dBm_AntSignal)+"\n"
 
-        with open(filename, "a") as f:
-            f.write(entry)
-        
-        #time.sleep(1)
+            with open(filename, "a") as f:
+                f.write(entry)
+            
+            #time.sleep(1)
 
 if __name__ == "__main__":
     
     sense=SenseHat()
     sense.set_imu_config(True,True,True) ## Config the Gyroscope, Accelerometer, Magnetometer
+    timestamp = datetime.now().strftime("%H:%M:%S")
+    #print("Value of x:" + x + " Value of Y:" + y)
+    entry = str(time.time())+","+timestamp+","+str(xpos)+","+str(ypos)+","+str(0.0)+","+str(pkt.dBm_AntSignal)+"\n"
+
+    with open(filename, "a") as f:
+        f.write(entry)
+        
+        
     sniff(iface=iface_n, prn=captured_packet_callback)
+    
+    
+    
 
 
        
