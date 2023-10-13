@@ -34,13 +34,11 @@ def captured_packet_callback(pkt): #x-axis
                 initialized = True
                 x_axis = True
                 disabled = False
-                x_pos =  accel['x']
                 break 
             if event.action == 'held' and event.direction == 'down': # y axis movement
                 initialized = True
                 x_axis = False
                 disabled = False
-                y_pos =  accel['y']
                 break
             if event.action == 'pressed' and event.direction == 'left':#initialziation
                 x_pos = 0.0
@@ -49,12 +47,10 @@ def captured_packet_callback(pkt): #x-axis
                 break
             if event.action == 'release' and event.direction == 'down': # when you release it should save x
                 initialized = True
-                x_pos =  accel['x']
                 print(str(x_pos))
                 break
             if event.action == 'release' and event.direction == 'right':
                 initialized = True
-                y_pos =  accel['y']
                 print(str(y_pos))
                 break
             
