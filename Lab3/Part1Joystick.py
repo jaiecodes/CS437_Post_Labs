@@ -28,13 +28,13 @@ def captured_packet_callback(pkt): #x-axis
       
     for event in sense.stick.get_events():  
         if event.action == 'pressed' and event.direction == 'right': # x axis movement
-            xpos.append(step_length[-1] + step_length)
+            xpos.append(xpos[-1] + step_length)
         if event.action == 'pressed' and event.direction == 'right': # x axis movement
-            xpos.append(step_length[-1] - step_length)
+            xpos.append(xpos[-1] - step_length)
         if event.action == 'pressed' and event.direction == 'right': # x axis movement
-            ypos.append(step_length[-1] + step_length)
+            ypos.append(ypos[-1] + step_length)
         if event.action == 'pressed' and event.direction == 'right': # x axis movement
-            ypos.append(step_length[-1] - step_length)
+            ypos.append(ypos[-1] - step_length)
             
             
         timestamp = datetime.now().strftime("%H:%M:%S")
