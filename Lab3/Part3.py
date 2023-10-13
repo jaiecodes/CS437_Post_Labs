@@ -34,4 +34,5 @@ def set_pixel_color(rssi_value):
 if __name__ == "__main":
     sense = SenseHat()
     sense.clear()
-    sniff(iface=iface_n, prn=captured_packet_callback)
+    while True:
+        sniff(iface=iface_n, prn=captured_packet_callback)
