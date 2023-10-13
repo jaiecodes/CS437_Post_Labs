@@ -15,7 +15,7 @@ iface_n = "wlan1"  # Interface for network adapter
 timestamp_fname=datetime.now().strftime("%H:%M:%S")
 filename=path+timestamp_fname+".csv"
 
-initialized = False
+global initialized = False
 def captured_packet_callback(pkt): #x-axis
     global x_pos 
     global y_pos
