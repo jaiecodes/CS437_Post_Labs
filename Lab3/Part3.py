@@ -31,11 +31,14 @@ def captured_packet_callback(pkt): #x-axis
         rssi_max = pkt.dBm_AntSignal
         sense.set_pixel(8,8, colours[1])
 
+      if abs(pkt.dBm_AntSignal) < abs(rssi_max - 3): 
+        sense.set_pixel(8,8, colours[5])
+
       if abs(pkt.dBm_AntSignal) < abs(rssi_max - 5): 
-      sense.set_pixel(8,8, colours[2])
+        sense.set_pixel(8,8, colours[2])
 
       if abs(pkt.dBm_AntSignal) < abs(rssi_max - 10): 
-      sense.set_pixel(8,8, colours[0])
+        sense.set_pixel(8,8, colours[0])
 
 
 if __name__ == "__main__":
