@@ -30,24 +30,24 @@ z_axis=df[4]
 rssi=df[5]
 
 
-### CALIBERATION
-x_calib_mean = np.mean(x_axis[10:5000])
-## caliberate x,y,z to reduce the bias in accelerometer readings. Subtracting it from the mean means that in the absence of motion, the accelerometer reading is centered around zero to reduce the effect of integrigation drift or error.
-## change the upper and lower bounds for computing the mean where the RPi is in static position at the begining of the experiment (i.e. for the first few readings). You can know these bounds from the exploratory plots above.
-x_calib = x_axis - x_calib_mean
-x_calib = x_calib[:]
-timestamp = timestamp[:]
+# ### CALIBERATION
+# x_calib_mean = np.mean(x_axis[10:5000])
+# ## caliberate x,y,z to reduce the bias in accelerometer readings. Subtracting it from the mean means that in the absence of motion, the accelerometer reading is centered around zero to reduce the effect of integrigation drift or error.
+# ## change the upper and lower bounds for computing the mean where the RPi is in static position at the begining of the experiment (i.e. for the first few readings). You can know these bounds from the exploratory plots above.
+# x_calib = x_axis - x_calib_mean
+# x_calib = x_calib[:]
+# timestamp = timestamp[:]
 
-y_calib_mean = np.mean(y_axis[10:5000])
-y_calib = y_axis - y_calib_mean
-y_calib = y_calib[:]
-timestamp = timestamp[:]
+# y_calib_mean = np.mean(y_axis[10:5000])
+# y_calib = y_axis - y_calib_mean
+# y_calib = y_calib[:]
+# timestamp = timestamp[:]
 
 
-z_calib_mean = np.mean(y_axis[10:5000])
-z_calib = z_axis - z_calib_mean
-z_calib = z_calib[:]
-timestamp = timestamp[:]
+# z_calib_mean = np.mean(y_axis[10:5000])
+# z_calib = z_axis - z_calib_mean
+# z_calib = z_calib[:]
+# timestamp = timestamp[:]
 
 
 
