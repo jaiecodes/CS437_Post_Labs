@@ -32,7 +32,6 @@ def captured_packet_callback(pkt): #x-axis
       elif pkt.dBm_AntSignal < rssi_max - 10: 
         print("RED "+str(abs(rssi_max) - 10)+"\n")  
         sense.set_pixel(7,7, colours[0])
-      time.sleep(0.1)
 
 
 if __name__ == "__main__":
