@@ -26,6 +26,7 @@ def captured_packet_callback(pkt): #x-axis
     
         x_axis = True
         disabled = True
+        initialized = False
         for event in sense.stick.get_events():
             if event.action == 'held' and event.direction == 'right':
                 x_axis = True
@@ -35,6 +36,10 @@ def captured_packet_callback(pkt): #x-axis
                 x_axis = False
                 disabled = False
                 break
+             if event.action == 'pressed' and event.direction == 'left':
+                x_pos = 0.0
+                y_pos = 0.0
+                initialized = True;
             if event.action == 'release' and event.direction == 'down':
                 x_pos =  accel['x']
                 break
@@ -43,29 +48,29 @@ def captured_packet_callback(pkt): #x-axis
                 break
             
 
-        
-        if disabled is True:
-            x = x_pos
-            y = y_pos # consider making this an array so that if we want to run the analysis it can access the 0
-            z = 0.0  
-        else:
-            if x_axis is True:
-                x = accel['x']
+        if initialized is True:
+            if disabled is True:
+                x = x_pos
                 y = y_pos # consider making this an array so that if we want to run the analysis it can access the 0
                 z = 0.0  
             else:
-                x = x_pos 
-                y = accel['y'] # consider making this an array so that if we want to run the analysis it can access the 0
-                z = 0.0  
+                if x_axis is True:
+                    x = accel['x']
+                    y = y_pos # consider making this an array so that if we want to run the analysis it can access the 0
+                    z = 0.0  
+                else:
+                    x = x_pos 
+                    y = accel['y'] # consider making this an array so that if we want to run the analysis it can access the 0
+                    z = 0.0  
 
-        timestamp = datetime.now().strftime("%H:%M:%S")
-        #print("Value of x:" + x + " Value of Y:" + y)
-        entry = str(time.time())+","+timestamp+","+str(x)+","+str(y)+","+str(z)+","+str(pkt.dBm_AntSignal)+"\n"
+            timestamp = datetime.now().strftime("%H:%M:%S")
+            #print("Value of x:" + x + " Value of Y:" + y)
+            entry = str(time.time())+","+timestamp+","+str(x)+","+str(y)+","+str(z)+","+str(pkt.dBm_AntSignal)+"\n"
 
-        with open(filename, "a") as f:
-            f.write(entry)
-        
-        #time.sleep(1)
+            with open(filename, "a") as f:
+                f.write(entry)
+            
+            #time.sleep(1)
 
 if __name__ == "__main__":
     sense=SenseHat()
