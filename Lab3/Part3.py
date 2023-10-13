@@ -19,7 +19,6 @@ def captured_packet_callback(pkt): #x-axis
     if pkt.haslayer(Dot11) and pkt.addr2 == dev_mac: 
       print("RSSI: "+str(pkt.dBm_AntSignal)+"\n")     
       print("MAXXX: "+str(rssi_max)+"\n")    
-      sense.clear()
       if pkt.dBm_AntSignal > rssi_max:
         rssi_max = pkt.dBm_AntSignal
         sense.set_pixel(7,7, colours[1])
