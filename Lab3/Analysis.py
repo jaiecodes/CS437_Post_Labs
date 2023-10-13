@@ -32,8 +32,8 @@ rssi=df[5]
 
 
 ## Plot X and Y positions with respect to time:
-plt.plot(timestamp.to_numpy(),x_axis, label="X positions", c="red")
-plt.plot(timestamp.to_numpy(),y_axis, label="Y positions", c="green")
+plt.plot(timestamp.to_numpy(),x_axis.to_numpy(), label="X positions", c="red")
+plt.plot(timestamp.to_numpy(),y_axis.to_numpy(), label="Y positions", c="green")
 plt.legend(loc="upper left")
 plt.xlabel("Timestamp (seconds)")
 plt.ylabel("Positions (m)")
