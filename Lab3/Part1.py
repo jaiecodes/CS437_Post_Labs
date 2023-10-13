@@ -61,9 +61,7 @@ def captured_packet_callback(pkt): #x-axis
             
 
         if initialized is True:
-            if still is True:
-                accel['x'] = 0.0
-                accel['y'] = 0.0
+           
             if disabled is True:
                 x = x_pos
                 y = y_pos # consider making this an array so that if we want to run the analysis it can access the 0
