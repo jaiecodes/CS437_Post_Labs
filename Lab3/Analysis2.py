@@ -53,7 +53,7 @@ plt.colorbar()
 plt.scatter(x_estimated, y_estimated, c='red', label='Estimated Positions', s=100, marker='x')
 
 # Plot original data points
-plt.scatter(x, y, c='blue', label='Original Data', s=50, marker='o')
+plt.scatter(x_estimated, y_estimated, c='blue', label='Original Data', s=50, marker='o')
 
 plt.xlabel('X Coordinate')
 plt.ylabel('Y Coordinate')
