@@ -2,6 +2,7 @@ from sense_hat import SenseHat
 import time
 from datetime import datetime,date
 from scapy.all import *
+import random
 
 
 path="/home/pi/Desktop/IMUData"
@@ -42,13 +43,13 @@ def captured_packet_callback(pkt): #x-axis
       
         for event in sense.stick.get_events():  
             if event.action == 'pressed' and event.direction == 'right': # x axis movement
-                xpos = xpos + step_length
+                xpos = xpos + round(random.uniform(0.7700, 0.8100), 4)
             if event.action == 'pressed' and event.direction == 'left': # x axis movement
-                xpos = xpos - step_length
+                xpos = xpos - round(random.uniform(0.7700, 0.8100), 4)
             if event.action == 'pressed' and event.direction == 'down': # x axis movement
-                ypos = ypos + step_length
+                ypos = ypos + round(random.uniform(0.7700, 0.8100), 4)
             if event.action == 'pressed' and event.direction == 'up': # x axis movement
-                ypos = ypos - step_length
+                ypos = ypos - round(random.uniform(0.7500, 0.8100), 4)
                 
                 
             timestamp = datetime.now().strftime("%H:%M:%S")
