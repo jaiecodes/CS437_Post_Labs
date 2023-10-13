@@ -17,8 +17,8 @@ height=1.95 # in meters
 step_length= 0.415 * height # in meters
 
 def captured_packet_callback(pkt): #x-axis  
-    xpos = [0]
-    ypos = [0]  
+    xpos = [0.0]
+    ypos = [0.0]  
     if pkt.haslayer(Dot11) and pkt.addr2 == dev_mac:
         accel = sense.get_accelerometer_raw()
         gyro = sense.get_gyroscope_raw()
@@ -39,7 +39,7 @@ def captured_packet_callback(pkt): #x-axis
             
         timestamp = datetime.now().strftime("%H:%M:%S")
         #print("Value of x:" + x + " Value of Y:" + y)
-        entry = str(time.time())+","+timestamp+","+str(xpos[-1])+","+str(ypos[-1])+","+str(z)+","+str(pkt.dBm_AntSignal)+"\n"
+        entry = str(time.time())+","+timestamp+","+str(xpos[-1])+","+str(ypos[-1])+","+str(0.0)+","+str(pkt.dBm_AntSignal)+"\n"
 
         with open(filename, "a") as f:
             f.write(entry)
