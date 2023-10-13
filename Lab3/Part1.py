@@ -14,7 +14,8 @@ iface_n = "wlan1"  # Interface for network adapter
 
 timestamp_fname=datetime.now().strftime("%H:%M:%S")
 filename=path+timestamp_fname+".csv"
-
+x_pos = 0
+y_pos = 0
 def captured_packet_callback(pkt): #x-axis
     if pkt.haslayer(Dot11) and pkt.addr2 == dev_mac:
         accel = sense.get_accelerometer_raw()
@@ -32,19 +33,26 @@ def captured_packet_callback(pkt): #x-axis
                 x_axis = False
                 disabled = False
                 break
+            if event.action == 'release' and event.direction == 'down':
+                x_pos =  accel['x']
+                break
+            if event.action == 'release' and event.direction == 'right':
+                y_pos =  accel['y']
+                break
+            
 
         
         if disabled is True:
-            x = 0.0
-            y = 0.0 # consider making this an array so that if we want to run the analysis it can access the 0
+            x = x_pos
+            y = y_pos # consider making this an array so that if we want to run the analysis it can access the 0
             z = 0.0  
         else:
             if x_axis is True:
                 x = accel['x']
-                y = 0.0 # consider making this an array so that if we want to run the analysis it can access the 0
+                y = y_pos # consider making this an array so that if we want to run the analysis it can access the 0
                 z = 0.0  
             else:
-                x = 0.0 
+                x = x_pos 
                 y = accel['y'] # consider making this an array so that if we want to run the analysis it can access the 0
                 z = 0.0  
 
