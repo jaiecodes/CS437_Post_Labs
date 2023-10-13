@@ -26,25 +26,25 @@ def captured_packet_callback(pkt): #x-axis
     
     
       
-       
-    if event.action == 'pressed' and event.direction == 'right': # x axis movement
-        xpos.append(step_length[-1] + step_length)
-    if event.action == 'pressed' and event.direction == 'right': # x axis movement
-        xpos.append(step_length[-1] - step_length)
-    if event.action == 'pressed' and event.direction == 'right': # x axis movement
-        ypos.append(step_length[-1] + step_length)
-    if event.action == 'pressed' and event.direction == 'right': # x axis movement
-        ypos.append(step_length[-1] - step_length)
-        
-           
-    timestamp = datetime.now().strftime("%H:%M:%S")
-    #print("Value of x:" + x + " Value of Y:" + y)
-    entry = str(time.time())+","+timestamp+","+str(x)+","+str(y)+","+str(z)+","+str(pkt.dBm_AntSignal)+"\n"
+    for event in sense.stick.get_events():  
+        if event.action == 'pressed' and event.direction == 'right': # x axis movement
+            xpos.append(step_length[-1] + step_length)
+        if event.action == 'pressed' and event.direction == 'right': # x axis movement
+            xpos.append(step_length[-1] - step_length)
+        if event.action == 'pressed' and event.direction == 'right': # x axis movement
+            ypos.append(step_length[-1] + step_length)
+        if event.action == 'pressed' and event.direction == 'right': # x axis movement
+            ypos.append(step_length[-1] - step_length)
+            
+            
+        timestamp = datetime.now().strftime("%H:%M:%S")
+        #print("Value of x:" + x + " Value of Y:" + y)
+        entry = str(time.time())+","+timestamp+","+str(x)+","+str(y)+","+str(z)+","+str(pkt.dBm_AntSignal)+"\n"
 
-    with open(filename, "a") as f:
-        f.write(entry)
-    
-    #time.sleep(1)
+        with open(filename, "a") as f:
+            f.write(entry)
+        
+        #time.sleep(1)
 
 if __name__ == "__main__":
     
