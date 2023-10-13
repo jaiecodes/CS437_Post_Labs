@@ -43,7 +43,7 @@ plt.show()
 ## Visualizing scatter plot in 2D
 
 window_size = 10 
-rssi_smoothed = rssi.rolling(window=window_size).mean()
+rssi_smoothed = rssi.rolling(window=window_size).mean() 
 
 plt.figure(figsize=(10, 6))  # Adjust the figure size as needed
 scatter = plt.scatter(x_axis.to_numpy(), y_axis.to_numpy(), c=rssi_smoothed, cmap='viridis', marker='o')
