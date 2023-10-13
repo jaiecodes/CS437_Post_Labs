@@ -1,8 +1,11 @@
 import numpy as np
 import time
+import scipy.signal as signal
 from datetime import datetime,date
 import matplotlib.pyplot as plt
 import pandas as pd
+
+import seaborn as sns # visualization
 
 
 ## Install the following libraries if they are not already installed on your Raspi:
@@ -169,7 +172,7 @@ walking_dir = np.deg2rad(5) ## deg to radians
 
 
 # To compute the step length, we estimate it to be propertional to the height of the user.
-height=1.75 # in meters
+height=1.95 # in meters
 step_length= 0.415 * height # in meters
 
 # Convert walking direction into a 2D unit vector representing motion in X, Y axis:
