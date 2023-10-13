@@ -1,5 +1,4 @@
 from sense_hat import SenseHat
-import numpy as np
 import time
 from datetime import datetime,date
 from scapy.all import *
