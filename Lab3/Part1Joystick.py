@@ -15,10 +15,10 @@ timestamp_fname=datetime.now().strftime("%H:%M:%S")
 filename=path+timestamp_fname+".csv"
 height=1.95 # in meters
 step_length= 0.415 * height # in meters
-
+xpos = [0.0]
+ypos = [0.0]  
 def captured_packet_callback(pkt): #x-axis  
-    xpos = [0.0]
-    ypos = [0.0]  
+   
     if pkt.haslayer(Dot11) and pkt.addr2 == dev_mac:
         accel = sense.get_accelerometer_raw()
         gyro = sense.get_gyroscope_raw()
