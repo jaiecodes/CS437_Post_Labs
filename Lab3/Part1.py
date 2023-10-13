@@ -19,6 +19,8 @@ filename=path+timestamp_fname+".csv"
 def captured_packet_callback(pkt): #x-axis
     global x_pos 
     global y_pos
+    
+    
     if pkt.haslayer(Dot11) and pkt.addr2 == dev_mac:
         accel = sense.get_accelerometer_raw()
         gyro = sense.get_gyroscope_raw()
@@ -28,17 +30,19 @@ def captured_packet_callback(pkt): #x-axis
         disabled = True
         initialized = False
         for event in sense.stick.get_events():
-            if event.action == 'held' and event.direction == 'right':
+            if event.action == 'held' and event.direction == 'right': # x axis movement
                 initialized = True
                 x_axis = True
                 disabled = False
+                x_pos =  accel['x']
                 break 
-            if event.action == 'held' and event.direction == 'down':
+            if event.action == 'held' and event.direction == 'down': # y axis movement
                 initialized = True
                 x_axis = False
                 disabled = False
+                y_pos =  accel['y']
                 break
-            if event.action == 'pressed' and event.direction == 'left':
+            if event.action == 'pressed' and event.direction == 'left':#initialziation
                 x_pos = 0.0
                 y_pos = 0.0
                 initialized = True
