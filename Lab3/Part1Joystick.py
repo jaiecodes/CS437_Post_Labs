@@ -28,7 +28,7 @@ def captured_packet_callback(pkt): #x-axis
         if init is False:
             timestamp = datetime.now().strftime("%H:%M:%S")
         
-            entry = str(time.time())+","+timestamp+","+str(xpos)+","+str(ypos)+","+str(0.0)+","+str(0)+"\n"
+            entry = str(time.time())+","+timestamp+","+str(xpos)+","+str(ypos)+","+str(0.0)+","+str(pkt.dBm_AntSignal)+"\n"
 
             with open(filename, "a") as f:
                 f.write(entry)
