@@ -29,13 +29,16 @@ def captured_packet_callback(pkt): #x-axis
         x_axis = True
         disabled = True
         initialized = False
+        still = True
         for event in sense.stick.get_events():
             if event.action == 'held' and event.direction == 'right': # x axis movement
+                still = False
                 initialized = True
                 x_axis = True
                 disabled = False
                 break 
             if event.action == 'held' and event.direction == 'down': # y axis movement
+                still = False
                 initialized = True
                 x_axis = False
                 disabled = False
@@ -45,17 +48,22 @@ def captured_packet_callback(pkt): #x-axis
                 y_pos = 0.0
                 initialized = True
                 break
-            if event.action == 'release' and event.direction == 'down': # when you release it should save x
-                initialized = True
-                print(str(x_pos))
-                break
-            if event.action == 'release' and event.direction == 'right':
-                initialized = True
-                print(str(y_pos))
-                break
+          
+                
+            # if event.action == 'release' and event.direction == 'down': # when you release it should save x
+            #     initialized = True
+            #     print(str(x_pos))
+            #     break
+            # if event.action == 'release' and event.direction == 'right':
+            #     initialized = True
+            #     print(str(y_pos))
+            #     break
             
 
         if initialized is True:
+            if still is True:
+                accel['x'] = 0.0
+                accel['y'] = 0.0
             if disabled is True:
                 x = x_pos
                 y = y_pos # consider making this an array so that if we want to run the analysis it can access the 0
