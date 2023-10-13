@@ -43,13 +43,15 @@ def captured_packet_callback(pkt): #x-axis
                 y_pos = 0.0
                 initialized = True
                 break
-            if event.action == 'release' and event.direction == 'down':
+            if event.action == 'release' and event.direction == 'down': # when you release it should save x
                 initialized = True
                 x_pos =  accel['x']
+                print(str(x_pos))
                 break
             if event.action == 'release' and event.direction == 'right':
                 initialized = True
                 y_pos =  accel['y']
+                print(str(y_pos))
                 break
             
 
