@@ -18,7 +18,8 @@ step_length= 0.415 * height # in meters
 xpos = 0.0
 ypos = 0.0
 def captured_packet_callback(pkt): #x-axis  
-   
+    global xpos
+    global ypos
     if pkt.haslayer(Dot11) and pkt.addr2 == dev_mac:
         accel = sense.get_accelerometer_raw()
         gyro = sense.get_gyroscope_raw()
