@@ -24,7 +24,7 @@ def captured_packet_callback(pkt): #x-axis
         mag = sense.get_compass_raw()
     
         x_axis = True
-        disabled = True;
+        disabled = True
         for event in sense.stick.get_events():
             if event.action == 'held' and event.direction == 'right':
                 x_axis = True
