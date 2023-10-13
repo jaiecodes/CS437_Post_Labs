@@ -13,8 +13,9 @@ iface_n = "wlan1"  # Interface for network adapter
 
 timestamp_fname=datetime.now().strftime("%H:%M:%S")
 filename=path+timestamp_fname+".csv"
-
+height=1.95 # in meters
 step_length= 0.415 * height # in meters
+
 def captured_packet_callback(pkt): #x-axis  
     xpos = [0]
     ypos = [0]  
