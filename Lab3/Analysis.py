@@ -12,7 +12,7 @@ import pandas as pd
 
 
 
-filename="/home/pi/Desktop/IMUData21:12:35.csv"
+filename="/home/pi/Desktop/IMUData22:03:32.csv"
 
 ## CSV file template:
 # time in seconds, timestamp (H:M:S), X-Acceleration, Y-Acceleration, Z-Acceleration, X-Gyroscope, Y-Gyro,Z-Gyro, X-Gyro, Y-Gyro, Z-gyro
