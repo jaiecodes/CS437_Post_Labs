@@ -11,7 +11,7 @@ path="/home/pi/Desktop/IMUData"
 dev_mac = "e4:5f:01:d4:9d:ce"  # Assigned transmitter MAC
 iface_n = "wlan1"  # Interface for network adapter
 
-rssi_max = -100000
+rssi_max = 0
 colours = [[255,0,0], [0,255,0], [0,0,255], [255,255,0], [255,0,255], [0,255,255]]
 
 def captured_packet_callback(pkt): #x-axis  
