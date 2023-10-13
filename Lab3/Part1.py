@@ -15,7 +15,7 @@ iface_n = "wlan1"  # Interface for network adapter
 timestamp_fname=datetime.now().strftime("%H:%M:%S")
 filename=path+timestamp_fname+".csv"
 
-
+initialized = False
 def captured_packet_callback(pkt): #x-axis
     global x_pos 
     global y_pos
@@ -26,7 +26,7 @@ def captured_packet_callback(pkt): #x-axis
     
         x_axis = True
         disabled = True
-        initialized = False
+       
         for event in sense.stick.get_events():
             if event.action == 'held' and event.direction == 'right':
                 x_axis = True
