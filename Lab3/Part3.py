@@ -16,7 +16,9 @@ colours = [[255,0,0], [0,255,0], [0,0,255], [255,255,0], [255,0,255], [0,255,255
 
 def captured_packet_callback(pkt): #x-axis  
     global rssi_max
-    if pkt.haslayer(Dot11) and pkt.addr2 == dev_mac:      
+    if pkt.haslayer(Dot11) and pkt.addr2 == dev_mac: 
+      print("RSSI: "+str(pkt.dBm_AntSignal)+"\n")     
+      print("RSSI: "+str(rssi_max)+"\n")    
       if pkt.dBm_AntSignal > rssi_max:
         rssi_max = pkt.dBm_AntSignal
         sense.set_pixel(7,7, colours[1])
