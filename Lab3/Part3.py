@@ -23,13 +23,13 @@ def captured_packet_callback(pkt): #x-axis
         print("GREEEN \n")    
         rssi_max = pkt.dBm_AntSignal
         sense.set_pixel(7,7, colours[1])
-      elif pkt.dBm_AntSignal > rssi_max - 10 and pkt.dBm_AntSignal < rssi_max - 5: 
+      elif pkt.dBm_AntSignal > rssi_max - 15 and pkt.dBm_AntSignal < rssi_max - 10: 
         print("TEAL "+str(abs(rssi_max) - 5)+"\n")  
         sense.set_pixel(7,7, colours[5])
-      elif pkt.dBm_AntSignal > rssi_max - 15 and pkt.dBm_AntSignal < rssi_max - 10: 
+      elif pkt.dBm_AntSignal > rssi_max - 25 and pkt.dBm_AntSignal < rssi_max - 15: 
         print("BLUE "+str(abs(rssi_max) - 10)+"\n")  
         sense.set_pixel(7,7, colours[2])
-      elif pkt.dBm_AntSignal < rssi_max - 15: 
+      elif pkt.dBm_AntSignal < rssi_max - 25: 
         print("RED "+str(abs(rssi_max) - 10)+"\n")  
         sense.set_pixel(7,7, colours[0])
 
