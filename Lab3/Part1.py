@@ -27,6 +27,7 @@ def captured_packet_callback(pkt): #x-axis
         accel = sense.get_accelerometer_raw()
         gyro = sense.get_gyroscope_raw()
         mag = sense.get_compass_raw()
+        z_accel = accel['z']
     
         x_axis = True
         enabled = False
@@ -60,7 +61,7 @@ def captured_packet_callback(pkt): #x-axis
         
             timestamp = datetime.now().strftime("%H:%M:%S")
             #print("Value of x:" + x + " Value of Y:" + y)
-            entry = str(time.time())+","+timestamp+","+str(x)+","+str(y)+","+str(z)+","+str(pkt.dBm_AntSignal)+"\n"
+            entry = str(time.time())+","+timestamp+","+str(x_accel)+","+str(y_accel)+","+str(z_accel)+","+str(pkt.dBm_AntSignal)+"\n"
 
             with open(filename, "a") as f:
                 f.write(entry)
