@@ -17,11 +17,12 @@ filename=path+timestamp_fname+".csv"
 
 x_accel = 0.0
 y_accel = 0.0
+is_intialized = False
 
 def captured_packet_callback(pkt): #x-axis
     global x_accel 
     global y_accel
-    
+    global is_intialized
     
     if pkt.haslayer(Dot11) and pkt.addr2 == dev_mac:
         accel = sense.get_accelerometer_raw()
@@ -51,11 +52,15 @@ def captured_packet_callback(pkt): #x-axis
                 enabled = True
                 y_accel = -1.0 * np.absolute(accel['y'])
                 break
-            if event.action == 'pressed':
-                enabled = True
-                x_accel = 0.0
-                y_accel = 0.0
-                break
+
+        if is_intialized is False: 
+            is_intialized = True
+            timestamp = datetime.now().strftime("%H:%M:%S")
+            #print("Value of x:" + x + " Value of Y:" + y)
+            entry = str(time.time())+","+timestamp+","+str(0.0)+","+str(0.0)+","+str(0.0)+","+str(pkt.dBm_AntSignal)+"\n"
+
+            with open(filename, "a") as f:
+                f.write(entry)
 
 
         if enabled is True:
