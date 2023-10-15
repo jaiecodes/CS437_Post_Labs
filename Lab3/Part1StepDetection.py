@@ -130,10 +130,11 @@ t = []
 for i in range(len(peaks_df)):
     t.append(cur_position)
 
-    cur_position = cur_position + step_length() * angle
+    cur_position = cur_position + step_length * angle
 
 t = np.array(t)
 print("Trajectory positions are---------------------------->", t)
+
 
 x_coords = t[:, 0]
 y_coords = t[:, 1]
