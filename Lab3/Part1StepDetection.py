@@ -149,3 +149,4 @@ plt.title('Plot of t over time')
 
 # Show legend
 plt.legend()
+plt.show()
