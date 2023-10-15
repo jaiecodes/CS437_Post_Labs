@@ -27,21 +27,21 @@ def captured_packet_callback(pkt): #x-axis
         accel = sense.get_accelerometer_raw()
         gyro = sense.get_gyroscope_raw()
         mag = sense.get_compass_raw()
-        z_accel = accel['z']
     
-        x_axis = True
         enabled = False
-        still = True
+
+        x_accel = 0.0
+        y_accel = 0.0
+        z_accel = accel['z']
+        
         for event in sense.stick.get_events():
             if event.action == 'held' and event.direction == 'right': # x axis movement
-                still = False
                 enabled = True
-                x_axis = True
+                x_accel = accel['x']
                 break 
             if event.action == 'held' and event.direction == 'down': # y axis movement
-                still = False
                 enabled = True
-                x_axis = False
+                y_accel = accel['y']
                 break
             if event.action == 'pressed' and event.direction == 'left':#initialziation
                 x_pos = 0.0
@@ -50,14 +50,6 @@ def captured_packet_callback(pkt): #x-axis
                 break
 
         if enabled is True:
-            if x_axis is True:
-                x_accel = accel['x']
-            else:
-                y_accel = accel['y']
-
-            if still is True:
-                x_accel = 0.0
-                y_accel = 0.0
         
             timestamp = datetime.now().strftime("%H:%M:%S")
             #print("Value of x:" + x + " Value of Y:" + y)
