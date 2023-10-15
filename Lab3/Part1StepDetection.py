@@ -139,7 +139,6 @@ print("Trajectory positions are---------------------------->", t)
 x_coords = t[:, 0]
 y_coords = t[:, 1]
 
-plt.figure(figsize=(8, 6))
 plt.plot(x_coords, y_coords, label='t')
 
 # Add labels and title
