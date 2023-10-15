@@ -15,10 +15,12 @@ iface_n = "wlan1"  # Interface for network adapter
 timestamp_fname=datetime.now().strftime("%H:%M:%S")
 filename=path+timestamp_fname+".csv"
 
+x_accel = 0.0
+y_accel = 0.0
 
 def captured_packet_callback(pkt): #x-axis
-    global x_pos 
-    global y_pos
+    global x_accel 
+    global y_accel
     
     
     if pkt.haslayer(Dot11) and pkt.addr2 == dev_mac:
@@ -27,34 +29,41 @@ def captured_packet_callback(pkt): #x-axis
         mag = sense.get_compass_raw()
     
         x_axis = True
-        disabled = True
-        initialized = False
+        enabled = False
         still = True
         for event in sense.stick.get_events():
             if event.action == 'held' and event.direction == 'right': # x axis movement
                 still = False
-                initialized = True
+                enabled = True
                 x_axis = True
-                disabled = False
                 break 
             if event.action == 'held' and event.direction == 'down': # y axis movement
                 still = False
-                initialized = True
+                enabled = True
                 x_axis = False
-                disabled = False
                 break
             if event.action == 'pressed' and event.direction == 'left':#initialziation
                 x_pos = 0.0
                 y_pos = 0.0
-                initialized = True
+                enabled = True
                 break
-       
-        timestamp = datetime.now().strftime("%H:%M:%S")
-        #print("Value of x:" + x + " Value of Y:" + y)
-        entry = str(time.time())+","+timestamp+","+str(x)+","+str(y)+","+str(z)+","+str(pkt.dBm_AntSignal)+"\n"
 
-        with open(filename, "a") as f:
-            f.write(entry)
+        if enabled is True:
+            if x_axis is True:
+                x_accel = accel['x']
+            else:
+                y_accel = accel['y']
+
+            if still is True:
+                x_accel = 0.0
+                y_accel = 0.0
+        
+            timestamp = datetime.now().strftime("%H:%M:%S")
+            #print("Value of x:" + x + " Value of Y:" + y)
+            entry = str(time.time())+","+timestamp+","+str(x)+","+str(y)+","+str(z)+","+str(pkt.dBm_AntSignal)+"\n"
+
+            with open(filename, "a") as f:
+                f.write(entry)
         
         #time.sleep(1)
 
