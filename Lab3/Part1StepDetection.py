@@ -134,3 +134,17 @@ for i in range(len(peaks_df)):
 
 t = np.array(t)
 print("Trajectory positions are---------------------------->", t)
+
+x_coords = t[:, 0]
+y_coords = t[:, 1]
+
+plt.figure(figsize=(8, 6))
+plt.plot(x_coords, y_coords, label='t')
+
+# Add labels and title
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Plot of t over time')
+
+# Show legend
+plt.legend()
