@@ -79,7 +79,7 @@ plt.show()
 
 ## Step Detection: The instantaneous peaks in the accelerometer readings correspond to the steps. We use thresholding technique to decide the range of peak values for step detection
 # Set a minimum threshold (e.g., 1.0) for peak detection
-min_threshold = 0.1  ## Change the threshold (if needed) based on the peak accelerometer values that you observe in your plot above
+min_threshold = 0.05  ## Change the threshold (if needed) based on the peak accelerometer values that you observe in your plot above
 
 # Calculate the upper threshold for peak detection as the maximum value in the data
 upper_threshold = np.max(accel)
