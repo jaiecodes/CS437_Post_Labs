@@ -51,7 +51,7 @@ def captured_packet_callback(pkt): #x-axis
                 enabled = True
                 x_accel = -1.0 * abs(accel['y'])
                 break
-            if event.action == 'pressed'
+            if event.action == 'pressed':
                 enabled = True
                 x_accel = 0.0
                 y_accel = 0.0
