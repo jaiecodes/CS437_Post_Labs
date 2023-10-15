@@ -4,7 +4,7 @@ import scipy.signal as signal
 from datetime import datetime,date
 import matplotlib.pyplot as plt
 import pandas as pd
-
+import scipy as scipy
 import seaborn as sns # visualization
 
 
