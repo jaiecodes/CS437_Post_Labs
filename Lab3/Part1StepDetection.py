@@ -12,7 +12,7 @@ import seaborn as sns # visualization
 
 
 
-filename="/home/pi/Desktop/IMUData15:17:48.csv"
+filename="/home/pi/Desktop/IMUData15:55:34.csv"
 
 ## CSV file template:
 # time in seconds, timestamp (H:M:S), X-Acceleration, Y-Acceleration, Z-Acceleration, X-Gyroscope, Y-Gyro,Z-Gyro, X-Gyro, Y-Gyro, Z-gyro
@@ -117,7 +117,7 @@ walking_dir = np.deg2rad(5) ## deg to radians
 
 
 # To compute the step length, we estimate it to be propertional to the height of the user.
-height=1.75 # in meters
+height=1.72 # in meters
 step_length= 0.415 * height # in meters
 
 # Convert walking direction into a 2D unit vector representing motion in X, Y axis:
