@@ -45,11 +45,11 @@ def captured_packet_callback(pkt): #x-axis
                 break
             if event.action == 'pressed' and event.direction == 'left':#initialziation
                 enabled = True
-                x_accel = -1.0 * abs(accel['x'])
+                x_accel = -1.0 * np.absolute(accel['x'])
                 break
             if event.action == 'pressed' and event.direction == 'up':#initialziation
                 enabled = True
-                x_accel = -1.0 * abs(accel['y'])
+                x_accel = -1.0 * np.absolute(accel['y'])
                 break
             if event.action == 'pressed':
                 enabled = True
