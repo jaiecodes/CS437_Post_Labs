@@ -33,7 +33,7 @@ def captured_packet_callback(pkt): #x-axis
         x_accel = 0.0
         y_accel = 0.0
         z_accel = accel['z']
-        
+
         for event in sense.stick.get_events():
             if event.action == 'held' and event.direction == 'right': # x axis movement
                 enabled = True
@@ -44,9 +44,12 @@ def captured_packet_callback(pkt): #x-axis
                 y_accel = accel['y']
                 break
             if event.action == 'pressed' and event.direction == 'left':#initialziation
-                x_pos = 0.0
-                y_pos = 0.0
                 enabled = True
+                x_accel = -1.0 * abs(accel['x'])
+                break
+            if event.action == 'pressed' and event.direction == 'up':#initialziation
+                enabled = True
+                x_accel = -1.0 * abs(accel['y'])
                 break
 
         if enabled is True:
