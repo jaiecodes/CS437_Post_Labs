@@ -6,9 +6,7 @@ We weren't sure why, so we ended up using the joystick method since it was the m
 
 
 ## Post-Lab Assignment-2
-
-
-
+Before we would sometimes get higher RSSI values when just walking during our path, so we decided to implement a moving window average so that the RSSI values are smooth based on the surrounding values read within a time frame. This helps avoid interpreting values as an incorrect max RSSI value when analyzing.
 
 
 ## Post-Lab Assignment-3
