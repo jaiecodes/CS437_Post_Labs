@@ -44,11 +44,11 @@ def captured_packet_callback(pkt): #x-axis
                 enabled = True
                 y_accel = np.absolute(accel['y'])
                 break
-            if event.action == 'pressed' and event.direction == 'left':#initialziation
+            if event.action == 'held' and event.direction == 'left':#initialziation
                 enabled = True
                 x_accel = -1.0 * np.absolute(accel['x'])
                 break
-            if event.action == 'pressed' and event.direction == 'up':#initialziation
+            if event.action == 'held' and event.direction == 'up':#initialziation
                 enabled = True
                 y_accel = -1.0 * np.absolute(accel['y'])
                 break
@@ -61,7 +61,6 @@ def captured_packet_callback(pkt): #x-axis
 
             with open(filename, "a") as f:
                 f.write(entry)
-
 
         if enabled is True:
         
