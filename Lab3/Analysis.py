@@ -61,7 +61,7 @@ plt.plot(z_axis, label="Z-axis Caliberated Acceleration")
 plt.legend(loc="upper left")
 plt.ylabel("Caliberated Acceleration in m/s^2")
 plt.xlabel("Number of Data Points")
-plt.ylim(-5, 5)  # Set the y-axis limits
+ # Set the y-axis limits
 plt.show()
 
 
@@ -89,7 +89,7 @@ plt.plot(y_vel, label="Y-axis velocity")
 plt.legend(loc="upper left")
 plt.ylabel("Velocity in m/s")
 plt.xlabel("# of Samples")
-plt.ylim(-5, 5)  # Set the y-axis limits
+ # Set the y-axis limits
 plt.show()
 
 x = [0]
@@ -117,7 +117,7 @@ plt.plot(timestamp.to_numpy(),y, label="Y positions", c="green")
 plt.legend(loc="upper left")
 plt.xlabel("Timestamp (seconds)")
 plt.ylabel("Positions (m)")
-plt.ylim(-5, 5)  # Set the y-axis limits
+  # Set the y-axis limits
 plt.show()
 
 
@@ -130,6 +130,6 @@ plt.xlabel('X position')
 plt.ylabel('Y position')
 cbar = plt.colorbar(scatter, label='RSSI')
 cbar.set_label('RSSI')
-plt.ylim(-5, 5) # Set the y-axis limits
+ # Set the y-axis limits
 plt.show()
 ##
