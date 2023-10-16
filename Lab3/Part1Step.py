@@ -131,7 +131,7 @@ for i in range(len(count)):
   print(count[i])
   print(oritent[i])
   max_count = max(max_count, oritent[i])
-  
+
   count_dict[count[i]] = oritent[i]
 
 ## Start position of the user i.e. (0,0)
@@ -162,7 +162,7 @@ for i in range(max_count + 1):
     y_pos[i + 1] = y_pos[i + 1] - step_length
 
 
-plt.scatter(x, y, marker='o', color='b', label='Coordinates')
+plt.scatter(x_pos, y_pos, marker='o', color='b', label='Coordinates')
 
 # Add labels and title
 plt.xlabel('X-axis')
