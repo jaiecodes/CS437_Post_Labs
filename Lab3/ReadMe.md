@@ -4,9 +4,7 @@ We filtered the writing of x and y acceleration based on the MAC address of the 
 
 ## Post-Lab Assignment-1
 
-We used the joystick and IMU, we also measured the gait of Jaden and Siddharth so we could see how much distance we were moving per step. We implemented the joystick to enable directionality in our movement measurements. One of our initial plans was to use the joystick to activate and deactivate accelerometers as we saw fit. Still, after a lot of trial and error, our measurements seemed accurate, but our actual analysis would keep failing in estimating position. 
-
-We weren't sure why, so we used the joystick method since it was the most accurate by far and gave us repeatable results. You can see in the graph that the position graph is accurate, and we return to almost our initial point. We added a factor of randomness to account for the fact that the human gait is not always a consistent value, so we varied our values between a range that we measured and found that we varied our gait in between. 
+We used the joystick and IMU, we also measured the gait of Jaden and Siddharth so we could see how much distance we were moving per step. We used the IMU in order to measure acceleration in each direction. For our final distance calculation, we used step detection with the code provided in the Lab document. We have our code detect the peaks and count the number of steps we have. We also double-check this value since we use the joystick to establish directionality. Every time we pressed in a direction we wrote an integer and parsed this in our analysis to ensure that we were performing the right operation to our final distance.
 
 
 ## Post-Lab Assignment-2
