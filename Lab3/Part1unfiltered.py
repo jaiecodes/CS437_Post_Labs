@@ -28,6 +28,8 @@ def captured_packet_callback(pkt): #x-axis
     global is_intialized
     global count
     global direction
+    
+    enabled = False
     if pkt.haslayer(Dot11) and pkt.addr2 == dev_mac:
         accel = sense.get_accelerometer_raw()
         gyro = sense.get_gyroscope_raw()
