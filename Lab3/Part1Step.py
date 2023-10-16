@@ -130,7 +130,7 @@ max_count = 0
 for i in range(len(count)):
   print(count[i])
   print(oritent[i])
-  max_count = max(max_count, oritent[i])
+  max_count = max(max_count, count[i])
 
   count_dict[count[i]] = oritent[i]
 
