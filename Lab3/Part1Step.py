@@ -149,7 +149,7 @@ x_pos = np.zeros(max_count + 2)
 y_pos = np.zeros(max_count + 2)
 
 
-for i in range(len(x_pos)):
+for i in range(len(x_pos) - 1):
   x_pos[i + 1] = x_pos[i]
   y_pos[i + 1] = y_pos[i]
   if count_dict[i] == 0:
