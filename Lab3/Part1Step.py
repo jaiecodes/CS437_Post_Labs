@@ -12,7 +12,7 @@ import seaborn as sns # visualization
 
 
 
-filename="/home/pi/Desktop/IMUData21:45:14.csv"
+filename="/home/pi/Desktop/IMUData21:41:57.csv"
 
 ## CSV file template:
 # time in seconds, timestamp (H:M:S), X-Acceleration, Y-Acceleration, Z-Acceleration, X-Gyroscope, Y-Gyro,Z-Gyro, X-Gyro, Y-Gyro, Z-gyro
@@ -26,6 +26,8 @@ timestamp = df[0]
 x_axis=df[2]
 y_axis=df[3]
 z_axis=df[4]
+count=df[5]
+oritent=df[6]
 
 ## Visualize your Accelerometer Values
 plt.plot(x_axis)
@@ -123,26 +125,45 @@ step_length= 0.415 * height # in meters
 # Convert walking direction into a 2D unit vector representing motion in X, Y axis:
 angle = np.array([np.cos(walking_dir), np.sin(walking_dir)])
 
+count_dict = {}
+for i in range(len(count)):
+  count_dict[count[i]] = oritent[i]
 
 ## Start position of the user i.e. (0,0)
 cur_position = np.array([0.0, 0.0], dtype=float)
 t = []
 for i in range(len(peaks_df)):
     t.append(cur_position)
-
     cur_position = cur_position + step_length * angle
 
 t = np.array(t)
 print("Trajectory positions are---------------------------->", t)
 
 
-x_coords = t[:, 0]
-y_coords = t[:, 1]
+x_pos = np.zeros(t.size + 1)
+y_pos = np.zeros(t.size + 1)
 
-plt.plot(timestamp.to_numpy(),x_axis.to_numpy(), label="X positions", c="red")
-plt.plot(timestamp.to_numpy(),y_axis.to_numpy(), label="Y positions", c="green")
-plt.legend(loc="upper left")
-plt.xlabel("Timestamp (seconds)")
-plt.ylabel("Positions (m)")
-#plt.ylim(-5, 5)  # Set the y-axis limits
+
+for i in range(t.size):
+  x_pos[i + 1] = x_pos[i]
+  y_pos[i + 1] = y_pos[i]
+  if count_dict[i] is 0:
+    x_pos[i + 1] = x_pos[i + 1] + step_length
+  if count_dict[i] is 1:
+    y_pos[i + 1] = y_pos[i + 1] + step_length
+  if count_dict[i] is 2:
+    x_pos[i + 1] = x_pos[i + 1] - step_length
+  if count_dict[i] is 3:
+    y_pos[i + 1] = y_pos[i + 1] - step_length
+
+
+plt.scatter(x, y, marker='o', color='b', label='Coordinates')
+
+# Add labels and title
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('XY Plot')
+
+# Show legend
+plt.legend()
 plt.show()
