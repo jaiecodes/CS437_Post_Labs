@@ -127,6 +127,8 @@ angle = np.array([np.cos(walking_dir), np.sin(walking_dir)])
 
 count_dict = {}
 for i in range(len(count)):
+  print(count[i])
+  print(oritent[i])
   count_dict[count[i]] = oritent[i]
 
 ## Start position of the user i.e. (0,0)
