@@ -1,3 +1,6 @@
+## LINK TO GITHUB TO SEE README AND FULL CODE(RECOMMENDED VIEW):https://github.com/jaiecodes/CS437_Post_Labs/tree/main/Lab3
+pdf seems to look strange
+
 ## Lab 3 Checkpoint 2
 
 We filtered the writing of x and y acceleration based on the MAC address of the transmitting Pi and the packet type. We take the RSSI value written into the CVS file as a data point to create a scatter plot using the ranges to determine the color of the dot in the scatter plot. 
