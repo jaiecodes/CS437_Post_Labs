@@ -75,7 +75,7 @@ def captured_packet_callback(pkt): #x-axis
         
             timestamp = datetime.now().strftime("%H:%M:%S")
             #print("Value of x:" + x + " Value of Y:" + y)
-            entry = str(time.time())+","+timestamp+","+str(accel['x'])+","+str(accel['y'])+","+str(accel['z'])+","+str(pkt.dBm_AntSignal)+"\n"
+            entry = str(time.time())+","+timestamp+","+str(accel['x'])+","+str(accel['y'])+","+str(accel['z'])+","+str(pkt.dBm_AntSignal)+","+str(count)+ ","+str(direction)+"\n"
 
             with open(filename, "a") as f:
                 f.write(entry)
