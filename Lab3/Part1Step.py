@@ -145,11 +145,11 @@ t = np.array(t)
 print("Trajectory positions are---------------------------->", t)
 
 
-x_pos = np.zeros(t.size + 1)
-y_pos = np.zeros(t.size + 1)
+x_pos = np.zeros(max_count + 2)
+y_pos = np.zeros(max_count + 2)
 
 
-for i in range(max_count + 1):
+for i in range(len(x_pos)):
   x_pos[i + 1] = x_pos[i]
   y_pos[i + 1] = y_pos[i]
   if count_dict[i] == 0:
@@ -162,7 +162,7 @@ for i in range(max_count + 1):
     y_pos[i + 1] = y_pos[i + 1] - step_length
 
 
-plt.scatter(x_pos, y_pos, marker='o', color='b', label='Coordinates')
+plt.scatter(x_pos, y_pos, marker='o', color='g', label='Coordinates')
 
 # Add labels and title
 plt.xlabel('X-axis')
