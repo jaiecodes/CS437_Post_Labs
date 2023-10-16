@@ -37,7 +37,7 @@ def captured_packet_callback(pkt): #x-axis
     
         
         for event in sense.stick.get_events():
-            count = count+1
+           
             if event.action == 'held' and event.direction == 'right': # x axis movement
                 enabled = True
                 x_accel = np.absolute(accel['x'])
@@ -73,6 +73,7 @@ def captured_packet_callback(pkt): #x-axis
         
             timestamp = datetime.now().strftime("%H:%M:%S")
             #print("Value of x:" + x + " Value of Y:" + y)
+            count = count+1;
             entry = str(time.time())+","+timestamp+","+str(accel['x'])+","+str(accel['y'])+","+str(accel['z'])+","+str(pkt.dBm_AntSignal)+","+str(count)+ ","+str(direction)+"\n"
 
             with open(filename, "a") as f:
