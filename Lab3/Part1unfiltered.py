@@ -1,38 +1,90 @@
 from sense_hat import SenseHat
 import numpy as np
 import time
-import scipy.signal as signal
 from datetime import datetime,date
-import matplotlib.pyplot as plt
-import pandas as pd
-import scipy
+from scapy.all import *
 
-import scipy.integrate as integrate
-path="/home/pi/Desktop/Code/Lab3/Part2/IMUData"
-sense=SenseHat()
+
+path="/home/pi/Desktop/IMUData"
+
+
+
+dev_mac = "e4:5f:01:d4:9d:ce"  # Assigned transmitter MAC
+iface_n = "wlan1"  # Interface for network adapter
 
 timestamp_fname=datetime.now().strftime("%H:%M:%S")
-sense.set_imu_config(True,True,True) ## Config the Gyroscope, Accelerometer, Magnetometer
 filename=path+timestamp_fname+".csv"
 
+x_accel = 0.0
+y_accel = 0.0
+is_intialized = False
+direction = 0 ## 0 is forward, 1 is right, 2 is bottom, 3 is left
+step = 0
 
-
-
-with open(filename,"a") as f:
-    while True:
-        accel=sense.get_accelerometer_raw()  ## returns float values representing acceleration intensity in Gs
-        gyro=sense.get_gyroscope_raw()  ## returns float values representing rotational intensity of the axis in radians per second
-        mag=sense.get_compass_raw()  ## returns float values representing magnetic intensity of the ais in microTeslas
+def captured_packet_callback(pkt): #x-axis
+    global x_accel 
+    global y_accel
+    global is_intialized
     
+    if pkt.haslayer(Dot11) and pkt.addr2 == dev_mac:
+        accel = sense.get_accelerometer_raw()
+        gyro = sense.get_gyroscope_raw()
+        mag = sense.get_compass_raw()
     
-        x=accel['x']
-  
-        y=accel['y']
-        z=accel['z']
-        timestamp=datetime.now().strftime("%H:%M:%S")
-        entry= str(time.time())+","+timestamp+","+str(x)+","+str(y)+","+str(z)+","+ str(gyro['x'])+ ","+str(gyro['y'])+","+ str(gyro['z'])+ ","+ str(mag['x'])+ ","+str(mag['y'])+","+ str(mag['z'])+"\n"
-    
-        f.write(entry)
-   
         
-f.close()
+        for event in sense.stick.get_events():
+            if event.action == 'held' and event.direction == 'right': # x axis movement
+                enabled = True
+                x_accel = np.absolute(accel['x'])
+                direction = 0
+                step = step +1
+                break 
+            if event.action == 'held' and event.direction == 'down': # y axis movement
+                enabled = True
+                y_accel = np.absolute(accel['y'])
+                direction = 1
+                step = step+1
+                break
+            if event.action == 'held' and event.direction == 'left':#initialziation
+                enabled = True
+                x_accel = -1.0 * np.absolute(accel['x'])
+                direction = 2
+                step = step+1
+                break
+            if event.action == 'held' and event.direction == 'up':#initialziation
+                enabled = True
+                y_accel = -1.0 * np.absolute(accel['y'])
+                direction = 3
+                step = step+1
+                break
+
+        if is_intialized is False: 
+            is_intialized = True
+            timestamp = datetime.now().strftime("%H:%M:%S")
+            #print("Value of x:" + x + " Value of Y:" + y)
+            entry = str(time.time())+","+timestamp+","+str(0.0)+","+str(0.0)+","+str(0.0)+","+str(pkt.dBm_AntSignal)+","+str(count)+ ","+str(direction)+"\n"
+
+            with open(filename, "a") as f:
+                f.write(entry)
+
+        if enabled is True:
+        
+            timestamp = datetime.now().strftime("%H:%M:%S")
+            #print("Value of x:" + x + " Value of Y:" + y)
+            entry = str(time.time())+","+timestamp+","+str(accel['x'])+","+str(accel['y'])+","+str(accel['z'])+","+str(pkt.dBm_AntSignal)+"\n"
+
+            with open(filename, "a") as f:
+                f.write(entry)
+        
+        #time.sleep(1)
+
+if __name__ == "__main__":
+    
+    sense=SenseHat()
+    sense.set_imu_config(True,True,True) ## Config the Gyroscope, Accelerometer, Magnetometer
+    sniff(iface=iface_n, prn=captured_packet_callback)
+
+
+       
+
+
