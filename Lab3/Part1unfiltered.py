@@ -37,33 +37,28 @@ def captured_packet_callback(pkt): #x-axis
     
         
         for event in sense.stick.get_events():
+            count = count+1
             if event.action == 'held' and event.direction == 'right': # x axis movement
                 enabled = True
                 x_accel = np.absolute(accel['x'])
-                direction = 0
-                count = count +1
+                direction = 0             
                 break 
             if event.action == 'held' and event.direction == 'down': # y axis movement
                 enabled = True
                 y_accel = np.absolute(accel['y'])
-                direction = 1
-                count = count+1
+                direction = 1              
                 break
             if event.action == 'held' and event.direction == 'left':#initialziation
                 enabled = True
                 x_accel = -1.0 * np.absolute(accel['x'])
                 direction = 2
-                count = count+1
                 break
             if event.action == 'held' and event.direction == 'up':#initialziation
                 enabled = True
                 y_accel = -1.0 * np.absolute(accel['y'])
                 direction = 3
-                count = count+1
                 break
-            if event.action == 'pressed':
-                count = count +1
-                break 
+            
 
         if is_intialized is False: 
             is_intialized = True
