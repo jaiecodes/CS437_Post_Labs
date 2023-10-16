@@ -29,7 +29,6 @@ def captured_packet_callback(pkt): #x-axis
     global count
     global direction
     
-    enabled = False
     if pkt.haslayer(Dot11) and pkt.addr2 == dev_mac:
         accel = sense.get_accelerometer_raw()
         gyro = sense.get_gyroscope_raw()
@@ -38,47 +37,31 @@ def captured_packet_callback(pkt): #x-axis
         
         for event in sense.stick.get_events():
            
-            if event.action == 'held' and event.direction == 'right': # x axis movement
-                enabled = True
-                x_accel = np.absolute(accel['x'])
-                direction = 0             
+            if event.action == 'pressed' and event.direction == 'right': # x axis movement
+                direction = 0    
+                count = count + 1         
                 break 
-            if event.action == 'held' and event.direction == 'down': # y axis movement
-                enabled = True
-                y_accel = np.absolute(accel['y'])
-                direction = 1              
+            if event.action == 'pressed' and event.direction == 'down': # y axis movement
+                direction = 1   
+                count = count + 1        
                 break
-            if event.action == 'held' and event.direction == 'left':#initialziation
-                enabled = True
-                x_accel = -1.0 * np.absolute(accel['x'])
+            if event.action == 'pressed' and event.direction == 'left':#initialziation
                 direction = 2
+                count = count + 1  
                 break
-            if event.action == 'held' and event.direction == 'up':#initialziation
-                enabled = True
-                y_accel = -1.0 * np.absolute(accel['y'])
+            if event.action == 'pressed' and event.direction == 'up':#initialziation
                 direction = 3
+                count = count + 1  
                 break
-            
-
-        if is_intialized is False: 
-            is_intialized = True
-            timestamp = datetime.now().strftime("%H:%M:%S")
-            #print("Value of x:" + x + " Value of Y:" + y)
-            entry = str(time.time())+","+timestamp+","+str(0.0)+","+str(0.0)+","+str(0.0)+","+str(pkt.dBm_AntSignal)+","+str(count)+ ","+str(direction)+"\n"
-
-            with open(filename, "a") as f:
-                f.write(entry)
-
-        if enabled is True:
         
-            timestamp = datetime.now().strftime("%H:%M:%S")
-            #print("Value of x:" + x + " Value of Y:" + y)
-            count = count+1;
-            entry = str(time.time())+","+timestamp+","+str(accel['x'])+","+str(accel['y'])+","+str(accel['z'])+","+str(pkt.dBm_AntSignal)+","+str(count)+ ","+str(direction)+"\n"
-
-            with open(filename, "a") as f:
-                f.write(entry)
+        timestamp = datetime.now().strftime("%H:%M:%S")
+        #print("Value of x:" + x + " Value of Y:" + y)
         
+        entry = str(time.time())+","+timestamp+","+str(accel['x'])+","+str(accel['y'])+","+str(accel['z'])+","+str(count)+ ","+str(direction)+","+str(pkt.dBm_AntSignal)+"\n"
+
+        with open(filename, "a") as f:
+            f.write(entry)
+    
         #time.sleep(1)
 
 if __name__ == "__main__":
