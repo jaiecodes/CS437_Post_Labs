@@ -12,6 +12,7 @@ We filtered the writing of x and y acceleration based on the MAC address of the 
 
 We used the joystick and IMU, we also measured the gait of Jaden and Siddharth so we could see how much distance we were moving per step. We used the IMU in order to measure acceleration in each direction. For our final distance calculation, we used step detection with the code provided in the Lab document. We have our code detect the peaks and count the number of steps we have. We also double-check this value since we use the joystick to establish directionality. Every time we pressed in a direction we wrote an integer and parsed this in our analysis to ensure that we were performing the right operation to our final distance.
 
+Part 1 Unfiltered is our collection code that collects data as we move and Part1Step is the analysis code that draws the XY position Graph
 Link To Video: https://drive.google.com/file/d/16v-O4gIqP5yC7BiXP-hjdOC-9dGxQEk5/view?usp=sharing
 ## Post-Lab Assignment-2
 
