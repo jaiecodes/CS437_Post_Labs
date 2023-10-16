@@ -1,8 +1,7 @@
 filename="/home/pi/Desktop/IMUData15:55:34.csv"
 
 ## CSV file template:
-# time in seconds, timestamp (H:M:S), X-Acceleration, Y-Acceleration, Z-Acceleration, X-Gyroscope, Y-Gyro,Z-Gyro, X-Gyro, Y-Gyro, Z-gyro
-	@@ -28,108 +28,31 @@
+# time in seconds, timestamp (H:M:S), X-Acceleration, Y-Acceleration, Z-Acceleration, X-Gyroscope, Y-Gyro,Z-Gyro, X-Gyro, Y-Gyro, Z-gyro @@ -28,108 +28,31 @@
 y_axis=df[3]
 z_axis=df[4]
 rssi=df[5]
