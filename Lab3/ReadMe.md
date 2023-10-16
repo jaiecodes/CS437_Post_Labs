@@ -1,4 +1,5 @@
-## LINK TO GITHUB TO SEE README AND FULL CODE(RECOMMENDED VIEW):https://github.com/jaiecodes/CS437_Post_Labs/tree/main/Lab3
+## LINK TO GITHUB TO SEE README AND FULL CODE(RECOMMENDED VIEW):
+https://github.com/jaiecodes/CS437_Post_Labs/tree/main/Lab3
 pdf seems to look strange
 
 ## Lab 3 Checkpoint 2
