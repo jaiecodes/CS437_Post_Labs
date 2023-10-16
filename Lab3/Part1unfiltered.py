@@ -61,6 +61,9 @@ def captured_packet_callback(pkt): #x-axis
                 direction = 3
                 count = count+1
                 break
+            if event.action == 'pressed':
+                count = count +1
+                break 
 
         if is_intialized is False: 
             is_intialized = True
