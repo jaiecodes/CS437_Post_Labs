@@ -16,7 +16,7 @@ Part 1 Unfiltered is our collection code that collects data as we move and Part1
 Link To Video: https://drive.google.com/file/d/16v-O4gIqP5yC7BiXP-hjdOC-9dGxQEk5/view?usp=sharing
 ## Post-Lab Assignment-2
 
-Before we would sometimes get higher RSSI values when just walking during our path, so we decided to implement a moving window average so that the RSSI values are smooth based on the surrounding values read within a time frame. This helps avoid interpreting values as an incorrect max RSSI value when analyzing.
+Before we would sometimes get higher RSSI values when just walking during our path, so we decided to implement a moving window average so that the RSSI values are smooth based on the surrounding values read within a time frame. This helps avoid interpreting values as an incorrect max RSSI value when analyzing. The code for the rolling window analysis using Pandas is Contained within Analysis.py
 
 Link to Video: https://drive.google.com/file/d/1pt2dIN3qRW86IFgx9xiUMY1rTCrVCVPD/view?usp=drive_link
 
