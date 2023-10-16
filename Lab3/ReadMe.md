@@ -6,7 +6,10 @@ pdf seems to look strange
 
 We filtered the writing of x and y acceleration based on the MAC address of the transmitting Pi and the packet type. We take the RSSI value written into the CVS file as a data point to create a scatter plot using the ranges to determine the color of the dot in the scatter plot. 
 
-## ALL PLOTS SHOWN IN DEMO VIDEOS
+![71825687939__0DCEC21C-D66D-426B-856A-031078B04E9D jpeg](https://github.com/jaiecodes/CS437_Post_Labs/assets/72780632/c7582e4c-32ee-42a7-88c7-daf70fa13266)
+
+
+## ALL POST LAB PLOTS SHOWN IN DEMO VIDEOS
 
 ## Post-Lab Assignment-1
 
