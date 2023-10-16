@@ -144,16 +144,16 @@ x_pos = np.zeros(t.size + 1)
 y_pos = np.zeros(t.size + 1)
 
 
-for i in range(t.size):
+for i in range(len(peaks_df)):
   x_pos[i + 1] = x_pos[i]
   y_pos[i + 1] = y_pos[i]
-  if count_dict[i] is 0:
+  if count_dict[i] == 0:
     x_pos[i + 1] = x_pos[i + 1] + step_length
-  if count_dict[i] is 1:
+  if count_dict[i] == 1:
     y_pos[i + 1] = y_pos[i + 1] + step_length
-  if count_dict[i] is 2:
+  if count_dict[i] == 2:
     x_pos[i + 1] = x_pos[i + 1] - step_length
-  if count_dict[i] is 3:
+  if count_dict[i] == 3:
     y_pos[i + 1] = y_pos[i + 1] - step_length
 
 
