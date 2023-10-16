@@ -110,7 +110,7 @@ print("Peaks_df is", peaks_df)
 # for e.g. if walking direction is 90 degrees, user is walking in the positive y-axis direction.
 # Assuming you are moving along the +X-axis with minor deviations/drifts in Y, we set the orientation to 5 (ideally it should be 0 but to take into account the drifts we keep 5)
 # Additionally, we assume that the walking direction will be the same throught the trajectory that you capture in this exercise.
-walking_dir = np.deg2rad(240) ## deg to radians
+walking_dir = np.deg2rad(300) ## deg to radians
 
 
 
