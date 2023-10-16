@@ -126,9 +126,12 @@ step_length= 0.415 * height # in meters
 angle = np.array([np.cos(walking_dir), np.sin(walking_dir)])
 
 count_dict = {}
+max_count = 0
 for i in range(len(count)):
   print(count[i])
   print(oritent[i])
+  max_count = max(max_count, oritent[i])
+  
   count_dict[count[i]] = oritent[i]
 
 ## Start position of the user i.e. (0,0)
@@ -146,7 +149,7 @@ x_pos = np.zeros(t.size + 1)
 y_pos = np.zeros(t.size + 1)
 
 
-for i in range(len(peaks_df)):
+for i in range(max_count + 1):
   x_pos[i + 1] = x_pos[i]
   y_pos[i + 1] = y_pos[i]
   if count_dict[i] == 0:
