@@ -4,7 +4,7 @@ pdf seems to look strange
 
 ## Lab 3 Checkpoint 2
 
-We filtered the writing of x and y acceleration based on the MAC address of the transmitting Pi and the packet type. We take the RSSI value written into the CVS file as a data point to create a scatter plot using the ranges to determine the color of the dot in the scatter plot. 
+We filtered the writing of x and y acceleration based on the MAC address of the transmitting Pi and the packet type. We take the RSSI value written into the CVS file as a data point to create a scatter plot using the ranges to determine the color of the dot in the scatter plot. You can see the scale is flawed since we were learning to edit the values when we took this but the yellow colors indicate when it is a higher RSSI aka when the signal strength is stronger, which makes sense since in this case we were walking toward the transmitting pi.
 
 ![71825687939__0DCEC21C-D66D-426B-856A-031078B04E9D jpeg](https://github.com/jaiecodes/CS437_Post_Labs/assets/72780632/c7582e4c-32ee-42a7-88c7-daf70fa13266)
 
