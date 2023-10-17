@@ -119,7 +119,7 @@ walking_dir = np.deg2rad(5) ## deg to radians
 
 
 # To compute the step length, we estimate it to be propertional to the height of the user.
-height=1.72 # in meters
+height=1.905 # in meters
 step_length= 0.415 * height # in meters
 
 # Convert walking direction into a 2D unit vector representing motion in X, Y axis:
