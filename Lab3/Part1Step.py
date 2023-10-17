@@ -12,7 +12,7 @@ import seaborn as sns # visualization
 
 
 
-filename="/home/pi/Desktop/IMUData14:41:30.csv"
+filename="/home/pi/Desktop/IMUData15:13:39.csv"
 
 ## CSV file template:
 # time in seconds, timestamp (H:M:S), X-Acceleration, Y-Acceleration, Z-Acceleration, X-Gyroscope, Y-Gyro,Z-Gyro, X-Gyro, Y-Gyro, Z-gyro
