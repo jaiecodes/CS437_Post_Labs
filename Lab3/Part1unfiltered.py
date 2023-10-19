@@ -9,7 +9,7 @@ path="/home/pi/Desktop/IMUData"
 
 
 
-dev_mac = "e4:5f:01:d4:9d:ce"  # Assigned transmitter MAC
+dev_mac = "e4:5f:01:d4:9f:f9"  # Assigned transmitter MAC
 iface_n = "wlan1"  # Interface for network adapter
 
 timestamp_fname=datetime.now().strftime("%H:%M:%S")
