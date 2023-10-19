@@ -19,7 +19,7 @@ filename="/home/pi/Desktop/IMUData14:17:40.csv"
 
 
 
-df =pd.read_csv(filename, header=None)
+df=pd.read_csv(filename, header=None)
 df=df.dropna()
 
 timestamp = df[0]
@@ -129,6 +129,7 @@ angle = np.array([np.cos(walking_dir), np.sin(walking_dir)])
 count_dict = {}
 max_count = 0
 avg_RSSIs = {}
+count_dict[0] = 0
 for i in range(len(count)):
   print(count[i])
   print(oritent[i])
