@@ -143,7 +143,7 @@ for i in range(len(count)):
 
 rssi_value = np.zeros(max_count + 2)
 rssi_value[0] = rssi[0]
-for step_num, rssi_list in avg_RSSIs:
+for step_num, rssi_list in avg_RSSIs.items():
   rssi_value[step_num + 1] = rssi_list[0] / rssi_list[1]
 
 
@@ -177,7 +177,7 @@ for i in range(len(x_pos) - 1):
 
 
 
-plt.scatter(x_pos, y_pos, c=rssi, cmap='viridis', marker='o')
+plt.scatter(x_pos, y_pos, c=rssi_value, cmap='viridis', marker='o')
 
 # Add labels and title
 plt.xlabel('X-axis')
