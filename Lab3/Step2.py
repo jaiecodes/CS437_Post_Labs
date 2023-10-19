@@ -177,7 +177,7 @@ for i in range(len(x_pos) - 1):
 
 
 
-plt.scatter(x_pos, y_pos, c=rssi_value, cmap='viridis', marker='o')
+scatter = plt.scatter(x_pos, y_pos, c=rssi_value, cmap='viridis', marker='o')
 
 # Add labels and title
 plt.xlabel('X-axis')
