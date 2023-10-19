@@ -138,7 +138,7 @@ for i in range(len(count)):
     avg_RSSIs[count[i]][0] = avg_RSSIs[count[i]][0] + rssi[i]
     avg_RSSIs[count[i]][1] = avg_RSSIs[count[i]][1] + 1
   else:
-    avg_RSSIs[count[i]] = [0,0]
+    avg_RSSIs[count[i]] = [rssi[i],1]
 
 
 rssi_value = np.zeros(max_count + 2)
