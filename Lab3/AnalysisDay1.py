@@ -19,7 +19,7 @@ filename="/home/pi/Desktop/IMUData15:13:39.csv"
 
 
 
-df=pd.read_csv(filename, header=None)
+df =pd.read_csv(filename, header=None)
 df=df.dropna()
 
 timestamp = df[0]
@@ -142,8 +142,9 @@ for i in range(len(count)):
 
 
 rssi_value = np.zeros(max_count + 2)
+rssi_value[0] = rssi[0]
 for step_num, rssi_list in avg_RSSIs.items():
-  rssi_value[step_num] = rssi_list[0] / rssi_list[1]
+  rssi_value[step_num + 1] = rssi_list[0] / rssi_list[1]
 
 
 ## Start position of the user i.e. (0,0)
