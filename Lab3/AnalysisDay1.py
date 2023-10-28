@@ -144,7 +144,7 @@ for i in range(len(count)):
 
 rssi_value = np.zeros(max_count + 2)
 for step_num, rssi_list in avg_RSSIs.items():
-  rssi_value[step_num + 1] = rssi_list[0] / rssi_list[1]
+  rssi_value[step_num] = rssi_list[0] / rssi_list[1]
 
 
 ## Start position of the user i.e. (0,0)
