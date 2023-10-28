@@ -130,7 +130,6 @@ count_dict = {}
 max_count = 0
 avg_RSSIs = {}
 count_dict[0] = 0
-avg_RSSIs[0] = -53
 for i in range(len(count)):
   print(count[i])
   print(oritent[i])
