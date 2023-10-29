@@ -129,7 +129,8 @@ angle = np.array([np.cos(walking_dir), np.sin(walking_dir)])
 count_dict = {}
 max_count = 0
 avg_RSSIs = {}
-count_dict[0] = 0
+avg_RSSIs[0] = [-53, 1]
+print(str(avg_RSSIs[0]))
 for i in range(len(count)):
   if count[i] == 4:
     break
@@ -146,14 +147,12 @@ for i in range(len(count)):
   print(avg_RSSIs[count[i]])
 
 
-avg_RSSIs[0] = [-53, 1]
 rssi_value = np.zeros(max_count + 2)
-print(str(avg_RSSIs[0]))
 for step_num, rssi_list in avg_RSSIs.items():
   rssi_value[step_num] = rssi_list[0] / rssi_list[1]
   print("Step Count: "+ str(step_num))
   print("RSSI Value Count: "+str(rssi_list[1]))
-  print("RSSI Value: "+str(rssi_list[0]))
+  print("RSSI Value: "+str(rssi_value[step_num]))
 
 
 ## Start position of the user i.e. (0,0)
