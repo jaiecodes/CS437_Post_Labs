@@ -143,6 +143,8 @@ for i in range(len(count)):
   else:
     avg_RSSIs[count[i]] = [rssi[i],1]
 
+  print(avg_RSSIs[count[i]])
+
 
 rssi_value = np.zeros(max_count + 2)
 rssi_value[0] = -53
