@@ -150,6 +150,7 @@ for step_num, rssi_list in avg_RSSIs.items():
   rssi_value[step_num + 1] = rssi_list[0] / rssi_list[1]
   print("Step Count: "+ str(step_num + 1))
   print("RSSI Value Count: "+str(rssi_list[1] + 1))
+  print("RSSI Value: "+str(rssi_list[0]))
 
 
 ## Start position of the user i.e. (0,0)
