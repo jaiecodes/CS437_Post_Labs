@@ -130,8 +130,7 @@ count_dict = {}
 max_count = 0
 avg_RSSIs = {}
 count_dict[0] = 0
-avg_RSSIs[0] = -53
-for i in range(len(count)):
+for i in range(len(3)):
   print(count[i])
   print(oritent[i])
   max_count = max(max_count, count[i])
@@ -146,10 +145,9 @@ for i in range(len(count)):
 rssi_value = np.zeros(max_count + 2)
 rssi_value[0] = -53
 for step_num, rssi_list in avg_RSSIs.items():
-  if step_num == 0:
-    continue
   rssi_value[step_num + 1] = rssi_list[0] / rssi_list[1]
   print("Step Count: "+ str(step_num + 1))
+  print("RSSI Value Count: "+ str(rssi_list + 1))
 
 
 ## Start position of the user i.e. (0,0)
