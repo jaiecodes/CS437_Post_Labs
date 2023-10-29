@@ -130,7 +130,9 @@ count_dict = {}
 max_count = 0
 avg_RSSIs = {}
 count_dict[0] = 0
-for i in range(3):
+for i in range(len(count)):
+  if count[i] == 4:
+    break
   print(count[i])
   print(oritent[i])
   max_count = max(max_count, count[i])
