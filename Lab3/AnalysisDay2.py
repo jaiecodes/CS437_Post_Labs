@@ -148,7 +148,7 @@ for i in range(len(count)):
   print(avg_RSSIs[count[i]])
 
 print(max_count)
-rssi_value = np.zeros(max_count + 2)
+rssi_value = np.zeros(max_count + 1)
 for step_num, rssi_list in avg_RSSIs.items():
   rssi_value[step_num] = rssi_list[0] / rssi_list[1]
   print("Step Count: "+ str(step_num))
@@ -167,8 +167,8 @@ t = np.array(t)
 print("Trajectory positions are---------------------------->", t)
 
 
-x_pos = np.zeros(max_count + 2)
-y_pos = np.zeros(max_count + 2)
+x_pos = np.zeros(max_count + 1)
+y_pos = np.zeros(max_count + 1)
 
 
 for i in range(len(x_pos) - 1):
