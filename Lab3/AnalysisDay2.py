@@ -147,7 +147,7 @@ for i in range(len(count)):
 
   print(avg_RSSIs[count[i]])
 
-
+print(max_count)
 rssi_value = np.zeros(max_count + 2)
 for step_num, rssi_list in avg_RSSIs.items():
   rssi_value[step_num] = rssi_list[0] / rssi_list[1]
