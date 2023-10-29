@@ -146,8 +146,9 @@ for i in range(len(count)):
   print(avg_RSSIs[count[i]])
 
 
-rssi_value = np.zeros(max_count + 1)
-rssi_value[0] = -53
+avg_RSSIs[0] = [-53, 1]
+rssi_value = np.zeros(max_count + 2)
+print(avg_RSSIs[count[i]])
 for step_num, rssi_list in avg_RSSIs.items():
   rssi_value[step_num] = rssi_list[0] / rssi_list[1]
   print("Step Count: "+ str(step_num))
