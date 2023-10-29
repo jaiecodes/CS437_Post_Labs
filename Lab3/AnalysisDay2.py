@@ -129,6 +129,7 @@ angle = np.array([np.cos(walking_dir), np.sin(walking_dir)])
 count_dict = {}
 max_count = 0
 avg_RSSIs = {}
+count_dict[0] = 0
 avg_RSSIs[0] = [-53, 1]
 print(str(avg_RSSIs[0]))
 for i in range(len(count)):
