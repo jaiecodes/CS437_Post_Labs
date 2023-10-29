@@ -1,4 +1,4 @@
-##How to run code
+## How to run code
 If collecting data, make sure to run mointor_mode.sh inorder to configure the Pi to recieve packets from the correct transmitting Pi
 Then run the data collection scripts and then run the respective analysis and exit each graph until the final processed data graph appears
 
