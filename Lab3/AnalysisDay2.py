@@ -144,7 +144,7 @@ for i in range(len(count)):
 
 
 rssi_value = np.zeros(max_count + 2)
-rssi_value[0] = 0
+rssi_value[0] = -53
 for step_num, rssi_list in avg_RSSIs.items():
   if step_num == 0:
     continue
