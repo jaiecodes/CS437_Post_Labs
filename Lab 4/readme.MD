@@ -5,3 +5,6 @@ All code is included in the Python notebook contained inside this repository and
 
 ## Post Lab Assignment 1: Radarr Based Motion Detection 
 Video Link: https://drive.google.com/file/d/1KtR3XCVJP3gOm4vx5RooKwCFBdi6DvN3/view?usp=drive_link
+
+## Post Lab Assignment 2: Sending a UDP Alert to Raspberry Pi when Motion is Detected
+Video Link: https://drive.google.com/file/d/1KrufNoZC_vRNqRhBEqetmpRgtX41uqui/view?usp=sharing
