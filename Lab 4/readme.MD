@@ -12,5 +12,5 @@ Video Link: https://drive.google.com/file/d/1KrufNoZC_vRNqRhBEqetmpRgtX41uqui/vi
 ## Extra Credit 
 Video Link: https://drive.google.com/file/d/1KlFA9iPQz9hCbL3Ld0mAhuA7Rm5d8xnY/view?usp=sharing
 
-##Post Lab Assignment 3:
-
+## Post Lab Assignment 3:
+![Graph](https://github.com/jaiecodes/CS437_Post_Labs/blob/main/Industrial_Visualizer/Capture.PNG)
