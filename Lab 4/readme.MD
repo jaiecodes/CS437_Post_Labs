@@ -8,3 +8,6 @@ Video Link: https://drive.google.com/file/d/1KtR3XCVJP3gOm4vx5RooKwCFBdi6DvN3/vi
 
 ## Post Lab Assignment 2: Sending a UDP Alert to Raspberry Pi when Motion is Detected
 Video Link: https://drive.google.com/file/d/1KrufNoZC_vRNqRhBEqetmpRgtX41uqui/view?usp=sharing
+
+## Extra Credit 
+Video Link: 
