@@ -1,3 +1,3 @@
 IWRL6432
 IWRL6432 Out of Box Demo
-C:/Users/Siddharth Kaza/Desktop/CS437/CS437_Post_Labs/Industrial_Visualizer/Lab4-Part2/lab4-p2.cfg
+C:/Users/Siddharth Kaza/Desktop/Lab5/lab5.cfg
